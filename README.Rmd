@@ -1,0 +1,76 @@
+cchecks
+=======
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+[![Build Status](https://travis-ci.com/ropenscilabs/cchecks.svg?branch=master)](https://travis-ci.com/ropenscilabs/cchecks)
+[![codecov.io](https://codecov.io/github/ropenscilabs/cchecks/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/cchecks?branch=master)
+
+R client for the cran checks API at <https://cranchecks.info>
+
+[Cran checks API docs][docs]
+
+there's no authentication needed
+
+## Install
+
+Development version
+
+```{r eval=FALSE}
+devtools::install_github("ropenscilabs/cchecks")
+```
+
+```{r}
+library("cchecks")
+```
+
+## heartbeat
+
+```{r}
+cch_heartbeat()
+```
+
+## packages
+
+all
+
+```{r}
+cch_pkgs(limit = 1)
+```
+
+by name
+
+```{r}
+x <- cch_pkgs(c("geojsonio", "leaflet", "MASS"))
+lapply(x, "[[", c("data", "summary"))
+```
+
+## maintainers
+
+all
+
+```{r}
+cch_maintainers(limit = 1)
+```
+
+by name
+
+```{r}
+cch_maintainers(c("123saga_at_gmail.com", "13268259225_at_163.com"))
+```
+
+## Meta
+
+* Please [report any issues or bugs](https://github.com/ropenscilabs/cchecks/issues).
+* License: MIT
+* Get citation information for `cchecks` in R doing `citation(package = 'cchecks')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+[docs]: https://cranchecks.info/docs
