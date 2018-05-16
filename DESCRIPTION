@@ -1,7 +1,7 @@
 Package: cchecks
 Type: Package
 Title: Client for the cranchecks.info API
-Description: Client for the cranchecks.info API
+Description: Client for the cranchecks.info API.
 Version: 0.1.1.9100
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "sckott@protonmail.com"))
