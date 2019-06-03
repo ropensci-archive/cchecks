@@ -32,9 +32,11 @@ library("cchecks")
 ```r
 cch_heartbeat()
 #> $routes
-#> [1] "/docs (GET)"                "/heartbeat (GET)"          
-#> [3] "/pkgs (GET)"                "/pkgs/:pkg_name: (GET)"    
-#> [5] "/maintainers (GET)"         "/maintainers/:email: (GET)"
+#> [1] "/docs (GET)"                    "/heartbeat (GET)"              
+#> [3] "/pkgs (GET)"                    "/pkgs/:pkg_name: (GET)"        
+#> [5] "/pkgs/:pkg_name:/history (GET)" "/maintainers (GET)"            
+#> [7] "/maintainers/:email: (GET)"     "/badges/:type/:package (GET)"  
+#> [9] "/badges/:flavor/:package (GET)"
 ```
 
 ## packages
@@ -45,26 +47,30 @@ all
 ```r
 cch_pkgs(limit = 1)
 #> $found
-#> [1] 12516
+#> [1] 14441
 #> 
 #> $count
 #> [1] 1
 #> 
 #> $offset
-#> NULL
+#> [1] 0
 #> 
 #> $error
 #> NULL
 #> 
 #> $data
-#>   _id package                                                       url
-#> 1  A3      A3 https://cran.rstudio.com/web/checks/check_results_A3.html
-#>   summary.any summary.ok summary.note summary.warning summary.error
-#> 1       FALSE         12            0               0             0
-#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               checks
-#> 1 r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-ix86+x86_64, r-patched-linux-x86_64, r-patched-solaris-x86, r-release-linux-x86_64, r-release-windows-ix86+x86_64, r-release-osx-x86_64, r-oldrel-windows-ix86+x86_64, r-oldrel-osx-x86_64, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.0.0, 1.31, 1.04, 0, 0, 3, 0.92, 0, 1.13, 3, 0, 5, 0, 20.67, 18.38, 0, 0, 34, 21.01, 0, 21.7, 34, 0, 50, 0, 21.98, 19.42, 31.55, 27.85, 37, 21.93, 42.8, 22.83, 37, 0, 55, 0, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/A3-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/A3-00check.html
-#>              date_updated
-#> 1 2018-05-10 19:30:47 UTC
+#>       _id package
+#> 1 localIV localIV
+#>                                                                 url
+#> 1 https://cloud.r-project.org/web/checks/check_results_localIV.html
+#>   summary.any summary.ok summary.note summary.warn summary.error
+#> 1       FALSE         12            0            0             0
+#>   summary.fail
+#> 1            0
+#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         checks
+#> 1 r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-ix86+x86_64, r-patched-linux-x86_64, r-patched-solaris-x86, r-release-linux-x86_64, r-release-windows-ix86+x86_64, r-release-osx-x86_64, r-oldrel-windows-ix86+x86_64, r-oldrel-osx-x86_64, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 0.2.1, 2.17, 1.75, 0, 0, 10, 1.97, 0, 1.97, 9, 0, 5, 0, 41.45, 27.49, 0, 0, 73, 40.49, 0, 40.53, 70, 0, 75, 0, 43.62, 29.24, 51.02, 50.2, 83, 42.46, 79, 42.5, 79, 0, 80, 0, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/localIV-00check.html
+#>   check_details             date_updated
+#> 1            NA 2019-06-03T18:02:32.950Z
 ```
 
 by name
@@ -83,10 +89,13 @@ lapply(x, "[[", c("data", "summary"))
 #> [[1]]$note
 #> [1] 1
 #> 
-#> [[1]]$warning
+#> [[1]]$warn
 #> [1] 0
 #> 
 #> [[1]]$error
+#> [1] 0
+#> 
+#> [[1]]$fail
 #> [1] 0
 #> 
 #> 
@@ -100,10 +109,13 @@ lapply(x, "[[", c("data", "summary"))
 #> [[2]]$note
 #> [1] 1
 #> 
-#> [[2]]$warning
+#> [[2]]$warn
 #> [1] 0
 #> 
 #> [[2]]$error
+#> [1] 0
+#> 
+#> [[2]]$fail
 #> [1] 0
 #> 
 #> 
@@ -117,10 +129,13 @@ lapply(x, "[[", c("data", "summary"))
 #> [[3]]$note
 #> [1] 0
 #> 
-#> [[3]]$warning
+#> [[3]]$warn
 #> [1] 0
 #> 
 #> [[3]]$error
+#> [1] 0
+#> 
+#> [[3]]$fail
 #> [1] 0
 ```
 
@@ -132,28 +147,28 @@ all
 ```r
 cch_maintainers(limit = 1)
 #> $found
-#> [1] 7388
+#> [1] 7916
 #> 
 #> $count
 #> [1] 1
 #> 
 #> $offset
-#> NULL
+#> [1] 0
 #> 
 #> $error
 #> NULL
 #> 
 #> $data
-#>                      _id                  email           name
-#> 1 00gerhard_at_gmail.com 00gerhard_at_gmail.com Daniel Gerhard
-#>                                                                             url
-#> 1 https://cran.rstudio.com/web/checks/check_results_00gerhard_at_gmail.com.html
-#>                      table
-#> 1 goric, mcprofile, 12, 12
-#>                                                                                                                                                   packages
-#> 1 goric, mcprofile, https://cran.rstudio.com/web/checks/check_results_goric.html, https://cran.rstudio.com/web/checks/check_results_mcprofile.html, NA, NA
-#>              date_updated
-#> 1 2018-05-10 19:25:58 UTC
+#>                      _id                  email             name
+#> 1 f.briatte_at_gmail.com f.briatte_at_gmail.com Francois Briatte
+#>                                                                                url
+#> 1 https://cloud.r-project.org/web/checks/check_results_f.briatte_at_gmail.com.html
+#>                           table
+#> 1 ggnetwork, FALSE, 12, 0, 0, 0
+#>                                                                             packages
+#> 1 ggnetwork, https://cloud.r-project.org/web/checks/check_results_ggnetwork.html, NA
+#>               date_updated
+#> 1 2019-04-03T12:01:43.690Z
 ```
 
 by name
@@ -163,36 +178,12 @@ by name
 cch_maintainers(c("123saga_at_gmail.com", "13268259225_at_163.com"))
 #> [[1]]
 #> [[1]]$error
-#> NULL
+#> [[1]]$error$message
+#> [1] "no results found"
+#> 
 #> 
 #> [[1]]$data
-#> [[1]]$data$`_id`
-#> [1] "123saga_at_gmail.com"
-#> 
-#> [[1]]$data$email
-#> [1] "123saga_at_gmail.com"
-#> 
-#> [[1]]$data$name
-#> [1] "Sagar Ganapaneni"
-#> 
-#> [[1]]$data$url
-#> [1] "https://cran.rstudio.com/web/checks/check_results_123saga_at_gmail.com.html"
-#> 
-#> [[1]]$data$table
-#>       package note ok
-#> 1 NOAAWeather    8  4
-#> 
-#> [[1]]$data$packages
-#>       package
-#> 1 NOAAWeather
-#>                                                                  url
-#> 1 https://cran.rstudio.com/web/checks/check_results_NOAAWeather.html
-#>     check_result version
-#> 1 NOTE, OK, 8, 4      NA
-#> 
-#> [[1]]$data$date_updated
-#> [1] "2018-05-10 19:25:58 UTC"
-#> 
+#> NULL
 #> 
 #> 
 #> [[2]]
@@ -210,20 +201,20 @@ cch_maintainers(c("123saga_at_gmail.com", "13268259225_at_163.com"))
 #> [1] "Xiao-Ping You"
 #> 
 #> [[2]]$data$url
-#> [1] "https://cran.rstudio.com/web/checks/check_results_13268259225_at_163.com.html"
+#> [1] "https://cloud.r-project.org/web/checks/check_results_13268259225_at_163.com.html"
 #> 
 #> [[2]]$data$table
-#>   package note
-#> 1    XHWE   12
+#>   package  any ok note warn error
+#> 1    XHWE TRUE  0   12    0     0
 #> 
 #> [[2]]$data$packages
-#>   package                                                         url
-#> 1    XHWE https://cran.rstudio.com/web/checks/check_results_XHWE.html
+#>   package                                                            url
+#> 1    XHWE https://cloud.r-project.org/web/checks/check_results_XHWE.html
 #>   check_result version
 #> 1         NULL      NA
 #> 
 #> [[2]]$data$date_updated
-#> [1] "2018-05-10 19:25:58 UTC"
+#> [1] "2019-04-03T12:01:43.983Z"
 ```
 
 ## Meta
@@ -231,6 +222,6 @@ cch_maintainers(c("123saga_at_gmail.com", "13268259225_at_163.com"))
 * Please [report any issues or bugs](https://github.com/ropenscilabs/cchecks/issues).
 * License: MIT
 * Get citation information for `cchecks` in R doing `citation(package = 'cchecks')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [docs]: https://cranchecks.info/docs

@@ -71,6 +71,6 @@ cch_maintainers(c("123saga_at_gmail.com", "13268259225_at_163.com"))
 * Please [report any issues or bugs](https://github.com/ropenscilabs/cchecks/issues).
 * License: MIT
 * Get citation information for `cchecks` in R doing `citation(package = 'cchecks')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [docs]: https://cranchecks.info/docs
