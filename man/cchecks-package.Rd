@@ -8,7 +8,7 @@
 \description{
 cchecks - Client for the cranchecks.info API
 }
-\section{Citing the IUCN Red List API}{
+\section{Docs}{
 
 See \url{https://cranchecks.info/docs}
 }

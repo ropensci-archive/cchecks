@@ -12,4 +12,4 @@ Roxygen: list(markdown = TRUE)
 Imports:
     crul (>= 0.5.2),
     jsonlite (>= 1.5)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

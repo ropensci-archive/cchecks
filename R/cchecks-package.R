@@ -1,6 +1,6 @@
 #' cchecks - Client for the cranchecks.info API
 #'
-#' @section Citing the IUCN Red List API:
+#' @section Docs:
 #' See <https://cranchecks.info/docs>
 #'
 #' @importFrom jsonlite fromJSON
