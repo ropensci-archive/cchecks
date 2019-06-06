@@ -63,7 +63,7 @@ cch_maintainers(limit = 1)
 by name
 
 ```{r}
-cch_maintainers(c("123saga_at_gmail.com", "13268259225_at_163.com"))
+cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 ```
 
 ## Meta
