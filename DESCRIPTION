@@ -2,13 +2,14 @@ Package: cchecks
 Type: Package
 Title: Client for the cranchecks.info API
 Description: Client for the cranchecks.info API.
-Version: 0.1.1.9100
+Version: 0.1.1.9120
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "sckott@protonmail.com"))
 License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/cchecks
 BugReports: https://github.com/ropenscilabs/cchecks/issues
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
 Imports:
     crul (>= 0.5.2),
     jsonlite (>= 1.5)
