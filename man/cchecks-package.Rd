@@ -4,7 +4,10 @@
 \name{cchecks-package}
 \alias{cchecks-package}
 \alias{cchecks}
-\title{cchecks - Client for the cranchecks.info API}
+\title{cchecks}
+\description{
+Client for the cranchecks.info API
+}
 \section{Docs}{
 
 See \url{https://cranchecks.info/docs}

@@ -1,5 +1,5 @@
-#' cchecks - Client for the cranchecks.info API
-#'
+#' @title cchecks
+#' @description Client for the cranchecks.info API
 #' @section Docs:
 #' See <https://cranchecks.info/docs>
 #'
