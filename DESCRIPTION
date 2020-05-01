@@ -12,5 +12,6 @@ Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Imports:
     crul,
-    jsonlite
+    jsonlite,
+    rappdirs
 RoxygenNote: 7.1.0

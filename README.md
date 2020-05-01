@@ -10,7 +10,7 @@ R client for the CRAN checks API at <https://cranchecks.info>
 
 [CRAN checks API docs][docs]
 
-there's no authentication needed for the CRAN checks API
+authentication is only needed for the CRAN checks API for the functions that start with `cchn`
 
 ## Install
 
@@ -35,7 +35,8 @@ cch_heartbeat()
 #>  [5] "/pkgs/:name"                     "/maintainers"                   
 #>  [7] "/maintainers/:email"             "/badges/:type/:package"         
 #>  [9] "/badges/flavor/:flavor/:package" "/pkgs/:name/history"            
-#> [11] "/history/:date"
+#> [11] "/history/:date"                  "/notifications/rules"           
+#> [13] "/notifications/rules/:id"
 ```
 
 ## packages
@@ -46,7 +47,7 @@ all
 ```r
 cch_pkgs(limit = 1)
 #> $found
-#> [1] 16460
+#> [1] 16469
 #> 
 #> $count
 #> [1] 1
@@ -64,10 +65,10 @@ cch_pkgs(limit = 1)
 #> 1 https://cloud.r-project.org/web/checks/check_results_localIV.html       FALSE
 #>   summary.ok summary.note summary.warn summary.error summary.fail
 #> 1         12            0            0             0            0
-#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            checks
-#> 1 r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-ix86+x86_64, r-patched-linux-x86_64, r-patched-solaris-x86, r-release-linux-x86_64, r-release-osx-x86_64, r-release-windows-ix86+x86_64, r-oldrel-osx-x86_64, r-oldrel-windows-ix86+x86_64, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 2.79, 2.48, 0, 0, 16, 2.19, 0, 2.18, 0, 16, 0, 7, 42.52, 33.74, 0, 0, 56, 41.91, 0, 41.8, 0, 56, 0, 54, 45.31, 36.22, 54.15, 54.14, 72, 44.1, 82.6, 43.98, 0, 72, 0, 61, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/localIV-00check.html
+#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           checks
+#> 1 r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-ix86+x86_64, r-patched-linux-x86_64, r-patched-solaris-x86, r-release-linux-x86_64, r-release-osx-x86_64, r-release-windows-ix86+x86_64, r-oldrel-osx-x86_64, r-oldrel-windows-ix86+x86_64, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 2.84, 2.23, 0, 0, 9, 1.81, 0, 2.65, 0, 9, 0, 7, 42.87, 34.06, 0, 0, 53, 41.82, 0, 41.72, 0, 61, 0, 59, 45.71, 36.29, 56.3, 55.17, 62, 43.63, 82.4, 44.37, 0, 70, 0, 66, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/localIV-00check.html
 #>   check_details             date_updated
-#> 1            NA 2020-04-28T15:03:06.424Z
+#> 1            NA 2020-05-01T18:03:13.008Z
 ```
 
 by name
@@ -144,7 +145,7 @@ all
 ```r
 cch_maintainers(limit = 1)
 #> $found
-#> [1] 9336
+#> [1] 9347
 #> 
 #> $count
 #> [1] 1
@@ -165,7 +166,7 @@ cch_maintainers(limit = 1)
 #>                                                                                             packages
 #> 1 ggnetwork, https://cloud.r-project.org/web/checks/check_results_ggnetwork.html, NOTE, OK, 5, 7, NA
 #>               date_updated
-#> 1 2020-04-28T16:00:49.465Z
+#> 1 2020-05-01T16:00:48.676Z
 ```
 
 by name
@@ -219,7 +220,7 @@ cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 #> 5 NOTE, OK, 5, 7      NA
 #> 
 #> [[1]]$data$date_updated
-#> [1] "2020-04-28T16:00:49.481Z"
+#> [1] "2020-05-01T16:00:48.692Z"
 #> 
 #> 
 #> 
@@ -251,8 +252,19 @@ cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 #> 1         NULL      NA
 #> 
 #> [[2]]$data$date_updated
-#> [1] "2020-04-28T16:00:49.629Z"
+#> [1] "2020-05-01T16:00:48.798Z"
 ```
+
+## notifications
+
+- `cchn_register()`: 
+  - register your email address
+  - validation email sent to user right away with token
+  - all `cch_notif_*` fxns use this cached token
+- `cchn_rule_list()`: list your own rules
+- `cchn_rule_get()`: get a rule by id
+- `cchn_rule_add()`: create a rule
+- `cchn_rule_delete()`: delete a rule by id (get id from `cchn_rule_list`)
 
 ## Meta
 

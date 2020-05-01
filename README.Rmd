@@ -17,7 +17,7 @@ R client for the CRAN checks API at <https://cranchecks.info>
 
 [CRAN checks API docs][docs]
 
-there's no authentication needed for the CRAN checks API
+authentication is only needed for the CRAN checks API for the functions that start with `cchn`
 
 ## Install
 
@@ -63,6 +63,17 @@ by name
 ```{r}
 cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 ```
+
+## notifications
+
+- `cchn_register()`: 
+  - register your email address
+  - validation email sent to user right away with token
+  - all `cch_notif_*` fxns use this cached token
+- `cchn_rule_list()`: list your own rules
+- `cchn_rule_get()`: get a rule by id
+- `cchn_rule_add()`: create a rule
+- `cchn_rule_delete()`: delete a rule by id (get id from `cchn_rule_list`)
 
 ## Meta
 
