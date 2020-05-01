@@ -9,3 +9,4 @@ man-roxygen
 .github
 ^Makefile$
 scotts_rules.R
+rules_egs.R
