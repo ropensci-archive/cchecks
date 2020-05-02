@@ -20,8 +20,8 @@ check_token <- function(x = NULL) {
 
 ccc_GET <- function(path, args, token = NULL, ...) {
   headers <- list()
-  token <- check_token(token)
   if (!is.null(token)) {
+    token <- check_token(token)
     headers <- list(Authorization = paste("Bearer", token))
   }
   cli <- crul::HttpClient$new(
