@@ -10,18 +10,16 @@ cchecks_ua <- function() {
   paste0(versions, collapse = " ")
 }
 
-check_token <- function(x = NULL) {
-  tmp <- if (is.null(x)) Sys.getenv("CCHECKS_API_KEY", "") else x
-  if (tmp == "") 
-    stop("you need an API token for CRAN checks notifications",
-      call. = FALSE)
-  return(tmp)
+check_token <- function(email) {
+  toks <- utils::read.csv(email_file_path(), stringsAsFactors = FALSE,
+    header = FALSE)
+  toks[which(email == toks[,1]), 2]
 }
 
-ccc_GET <- function(path, args, token = NULL, ...) {
+ccc_GET <- function(path, args, email = NULL, no_token = FALSE, ...) {
   headers <- list()
-  if (!is.null(token)) {
-    token <- check_token(token)
+  if (!no_token) {
+    token <- check_token(email)
     headers <- list(Authorization = paste("Bearer", token))
   }
   cli <- crul::HttpClient$new(
@@ -35,9 +33,9 @@ ccc_GET <- function(path, args, token = NULL, ...) {
   return(x)
 }
 
-ccc_DELETE <- function(path, token = NULL, ...) {
+ccc_DELETE <- function(path, email = NULL, ...) {
   headers <- list()
-  token <- check_token(token)
+  token <- check_token(email)
   if (!is.null(token)) {
     headers <- list(Authorization = paste("Bearer", token))
   }
@@ -51,9 +49,9 @@ ccc_DELETE <- function(path, token = NULL, ...) {
   return(temp)
 }
 
-ccc_POST <- function(path, body, token = NULL, ...) {
+ccc_POST <- function(path, body, email = NULL, ...) {
   headers <- list()
-  token <- check_token(token)
+  token <- check_token(email)
   if (!is.null(token)) {
     headers <- list(Authorization = paste("Bearer", token))
   }

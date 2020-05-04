@@ -2,7 +2,7 @@ Package: cchecks
 Type: Package
 Title: Client for the cranchecks.info API
 Description: Client for the cranchecks.info API.
-Version: 0.1.2.91
+Version: 0.1.3.91
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "sckott@protonmail.com"))
 License: MIT + file LICENSE
@@ -13,5 +13,11 @@ Encoding: UTF-8
 Imports:
     crul,
     jsonlite,
-    rappdirs
+    rappdirs,
+    tibble,
+    cli,
+    crayon,
+    whoami,
+    desc,
+    rematch
 RoxygenNote: 7.1.0

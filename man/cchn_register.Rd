@@ -2,13 +2,20 @@
 % Please edit documentation in R/cchn_register.R
 \name{cchn_register}
 \alias{cchn_register}
+\alias{cchn_validate}
 \title{Notifications: register your email address and get a token}
 \usage{
-cchn_register(email, ...)
+cchn_register(email = NULL, token = NULL, ...)
+
+cchn_validate(token = NULL)
 }
 \arguments{
 \item{email}{(character) email address to use for interaction with
 the CRAN checks API}
+
+\item{token}{(character) your CRAN checks API token. you shouldn't need
+to pass a token in here. if you used \code{\link[=cchn_register]{cchn_register()}} your token should
+be cached}
 
 \item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}}
 }
@@ -19,9 +26,6 @@ list, with \code{email} and \code{token} slots
 Notifications: register your email address and get a token
 }
 \details{
-After running this function successfully (no errors), save your
-token in your .Renviron, .bash_profile, or similar.
-
 We cache a file with details at the path
 \code{file.path(rappdirs::user_data_dir("cranchecks", "cchecks"), "emails.csv")}
 }

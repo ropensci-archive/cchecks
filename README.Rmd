@@ -66,10 +66,10 @@ cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 
 ## notifications
 
-- `cchn_register()`: 
-  - register your email address
+- `cchn_register(email = "your email")`: 
+  - registers your email address
   - validation email sent to user right away with token
-  - all `cch_notif_*` fxns use this cached token
+  - all `cchn_rule*` fxns use this token
 - `cchn_rule_list()`: list your own rules
 - `cchn_rule_get()`: get a rule by id
 - `cchn_rule_add()`: create a rule

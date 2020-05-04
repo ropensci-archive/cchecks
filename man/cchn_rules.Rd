@@ -9,24 +9,23 @@
 \title{Notifications: add, list, get, delete notification rules}
 \usage{
 cchn_rule_add(
-  package,
   status = NULL,
   platform = NULL,
   time = NULL,
   regex = NULL,
-  token = NULL,
+  package = NULL,
+  email = NULL,
+  path = ".",
   ...
 )
 
-cchn_rule_list(token = NULL, ...)
+cchn_rule_list(email = NULL, path = ".", ...)
 
-cchn_rule_get(id, token = NULL, ...)
+cchn_rule_get(id, email = NULL, path = ".", ...)
 
-cchn_rule_delete(id, token = NULL, ...)
+cchn_rule_delete(id, email = NULL, path = ".", ...)
 }
 \arguments{
-\item{package}{(character) a package name. required}
-
 \item{status}{(character) a check status, one of: error, warn, note, fail}
 
 \item{platform}{(character) a platform, a string to match against the
@@ -39,16 +38,30 @@ specific platform by using the target platforms exact string
 
 \item{regex}{(character) a regex string}
 
-\item{token}{(character) your CRAN checks API token. ideally you do not
-pass in your token as a parameter, but rather store as a env var}
+\item{package}{(character) a package name. if \code{NULL}, we attempt to
+get the package name from the working directory, and fail out if there's
+not a valid package structure/package name}
 
-\item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}}
+\item{email}{(character) email address to use for interaction with
+the CRAN checks API}
+
+\item{path}{(character) path to a directory containing an R package.}
+
+\item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}, \link[crul:verb-POST]{crul::verb-POST}, or
+\link[crul:verb-DELETE]{crul::verb-DELETE}}
 
 \item{id}{(integer) a rule id. note that you can not get or delete
 rules that are not yours. required}
 }
 \value{
-list
+\itemize{
+\item \code{cchn_rule_add()}: \code{list(error = NULL, data = "success")}
+\item \code{cchn_rule_get()}: list with elements \code{error} and \code{data} (a list of
+the parts of the rule)
+\item \code{cchn_rule_list()}: list with elements \code{error} and \code{data} (a data.frame
+of all the rules associated with your email)
+\item \code{cchn_rule_delete()}: if deletion works, a message saying "ok"
+}
 }
 \description{
 Notifications: add, list, get, delete notification rules
@@ -63,6 +76,44 @@ can only get rules for the authenticated user)
 authenticated user)
 }
 }
+\section{example rules}{
+
+\itemize{
+\item ERROR for 3 days in a row across 2 or more platforms
+\itemize{
+\item \code{cchn_rule_add(status = 'error', time = 3, platform = 2)}
+}
+\item ERROR for 2 days in a row on all osx platforms
+\itemize{
+\item \verb{cchn_rule_add(status' = 'error', time = 2, platform = "osx")}
+}
+\item ERROR for 2 days in a row on all release R versions
+\itemize{
+\item \code{cchn_rule_add(status = 'error', time = 2, platform = "release")}
+}
+\item WARN for 4 days in a row on any platform except Solaris
+\itemize{
+\item \code{cchn_rule_add(status = 'warn', time = 4, platform = "-solaris")}
+}
+\item WARN for 2 days in a row across 9 or more platforms
+\itemize{
+\item \code{cchn_rule_add(status = 'warn', time = 2, platform = 10)}
+}
+\item NOTE across all osx platforms
+\itemize{
+\item \code{cchn_rule_add(status = 'note', platform = "osx")}
+}
+\item NOTE
+\itemize{
+\item \code{cchn_rule_add(status = 'note')}
+}
+\item error details contain regex 'install'
+\itemize{
+\item \code{cchn_rule_add(regex = "install")}
+}
+}
+}
+
 \examples{
 \dontrun{
 # (x <- cchn_rule_list())
