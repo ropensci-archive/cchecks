@@ -43,9 +43,11 @@ get the package name from the working directory, and fail out if there's
 not a valid package structure/package name}
 
 \item{email}{(character) email address to use for interaction with
-the CRAN checks API}
+the CRAN checks API. we use the email address in the maintainers slot
+of the DESCRIPTION file of your working directory. you can supply an
+email address instead}
 
-\item{path}{(character) path to a directory containing an R package.}
+\item{path}{(character) path to a directory containing an R package}
 
 \item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}, \link[crul:verb-POST]{crul::verb-POST}, or
 \link[crul:verb-DELETE]{crul::verb-DELETE}}

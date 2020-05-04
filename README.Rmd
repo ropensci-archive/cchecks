@@ -66,14 +66,47 @@ cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 
 ## notifications
 
-- `cchn_register(email = "your email")`: 
-  - registers your email address
-  - validation email sent to user right away with token
-  - all `cchn_rule*` fxns use this token
+Functions for working with notifications are all prefixed with `cchn`. 
+
+`cchn` functions are designed to be used from within an R package directory. The functions
+look for the package name and maintainer email address. Functions copy heavily from 
+https://github.com/r-hub/rhub
+
+The functions
+
+- `cchn_register()`: registration
 - `cchn_rule_list()`: list your own rules
 - `cchn_rule_get()`: get a rule by id
 - `cchn_rule_add()`: create a rule
 - `cchn_rule_delete()`: delete a rule by id (get id from `cchn_rule_list`)
+
+The first thing to do is to register an email address. In an R session in a working directory for 
+one of your packages that is on CRAN, run `cchn_register()`. This function:
+
+- registers your email address
+- a validation email is sent to you right away with your token
+- paste the token from the amil into the R session
+- the email and token are then saved in a file on your machine
+- all `cchn_rule*` functions use this cached token
+- you don't need to pass the token in any `cchn` function calls
+
+If you run `cchn_register()` in the same package directory (with the same email address), 
+you'll be issued a new token, which will be updated in your cached token file.
+
+It's entirely possible to have more than one email address you use across different R packages. 
+If you run `cchn_register()` in a different package directory (with a different email address
+from a previous run of `cchn_register()`), you'll be issued a different token associated 
+with that new email address.
+
+See `?cchn_rules` for details on how the rules work and many examples of adding rules.
+
+Note that you can only manage your own rules. You can not list, get, or delete rules 
+of other users.
+
+to do:
+
+- may create other functions for use cases where users want to work across packages rather
+than within a single package.
 
 ## Meta
 

@@ -13,8 +13,10 @@
 #' get the package name from the working directory, and fail out if there's
 #' not a valid package structure/package name
 #' @param email (character) email address to use for interaction with
-#' the CRAN checks API
-#' @param path (character) path to a directory containing an R package.
+#' the CRAN checks API. we use the email address in the maintainers slot
+#' of the DESCRIPTION file of your working directory. you can supply an 
+#' email address instead
+#' @param path (character) path to a directory containing an R package
 #' @param id (integer) a rule id. note that you can not get or delete
 #' rules that are not yours. required
 #' @param ... Curl options passed to [crul::verb-GET], [crul::verb-POST], or

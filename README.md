@@ -47,7 +47,7 @@ all
 ```r
 cch_pkgs(limit = 1)
 #> $found
-#> [1] 16469
+#> [1] 16498
 #> 
 #> $count
 #> [1] 1
@@ -65,10 +65,10 @@ cch_pkgs(limit = 1)
 #> 1 https://cloud.r-project.org/web/checks/check_results_localIV.html       FALSE
 #>   summary.ok summary.note summary.warn summary.error summary.fail
 #> 1         12            0            0             0            0
-#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           checks
-#> 1 r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-ix86+x86_64, r-patched-linux-x86_64, r-patched-solaris-x86, r-release-linux-x86_64, r-release-osx-x86_64, r-release-windows-ix86+x86_64, r-oldrel-osx-x86_64, r-oldrel-windows-ix86+x86_64, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 2.84, 2.23, 0, 0, 9, 1.81, 0, 2.65, 0, 9, 0, 7, 42.87, 34.06, 0, 0, 53, 41.82, 0, 41.72, 0, 61, 0, 59, 45.71, 36.29, 56.3, 55.17, 62, 43.63, 82.4, 44.37, 0, 70, 0, 66, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/localIV-00check.html
+#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              checks
+#> 1 r-devel-linux-x86_64-debian-clang, r-devel-linux-x86_64-debian-gcc, r-devel-linux-x86_64-fedora-clang, r-devel-linux-x86_64-fedora-gcc, r-devel-windows-ix86+x86_64, r-patched-linux-x86_64, r-patched-solaris-x86, r-release-linux-x86_64, r-release-osx-x86_64, r-release-windows-ix86+x86_64, r-oldrel-osx-x86_64, r-oldrel-windows-ix86+x86_64, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 0.3.0, 2.65, 2.35, 0, 0, 11, 2.44, 0, 2.14, 0, 18, 0, 7, 42.61, 33.88, 0, 0, 68, 42.17, 0, 41.53, 0, 73, 0, 59, 45.26, 36.23, 54.85, 53.87, 79, 44.61, 82.4, 43.67, 0, 91, 0, 66, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, OK, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/localIV-00check.html, https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/localIV-00check.html
 #>   check_details             date_updated
-#> 1            NA 2020-05-01T18:03:13.008Z
+#> 1            NA 2020-05-04T21:03:11.221Z
 ```
 
 by name
@@ -145,7 +145,7 @@ all
 ```r
 cch_maintainers(limit = 1)
 #> $found
-#> [1] 9347
+#> [1] 9369
 #> 
 #> $count
 #> [1] 1
@@ -166,7 +166,7 @@ cch_maintainers(limit = 1)
 #>                                                                                             packages
 #> 1 ggnetwork, https://cloud.r-project.org/web/checks/check_results_ggnetwork.html, NOTE, OK, 5, 7, NA
 #>               date_updated
-#> 1 2020-05-01T16:00:48.676Z
+#> 1 2020-05-04T20:00:50.553Z
 ```
 
 by name
@@ -220,7 +220,7 @@ cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 #> 5 NOTE, OK, 5, 7      NA
 #> 
 #> [[1]]$data$date_updated
-#> [1] "2020-05-01T16:00:48.692Z"
+#> [1] "2020-05-04T20:00:50.572Z"
 #> 
 #> 
 #> 
@@ -252,19 +252,52 @@ cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 #> 1         NULL      NA
 #> 
 #> [[2]]$data$date_updated
-#> [1] "2020-05-01T16:00:48.798Z"
+#> [1] "2020-05-04T20:00:50.692Z"
 ```
 
 ## notifications
 
-- `cchn_register()`: 
-  - register your email address
-  - validation email sent to user right away with token
-  - all `cch_notif_*` fxns use this cached token
+Functions for working with notifications are all prefixed with `cchn`. 
+
+`cchn` functions are designed to be used from within an R package directory. The functions
+look for the package name and maintainer email address. Functions copy heavily from 
+https://github.com/r-hub/rhub
+
+The functions
+
+- `cchn_register()`: registration
 - `cchn_rule_list()`: list your own rules
 - `cchn_rule_get()`: get a rule by id
 - `cchn_rule_add()`: create a rule
 - `cchn_rule_delete()`: delete a rule by id (get id from `cchn_rule_list`)
+
+The first thing to do is to register an email address. In an R session in a working directory for 
+one of your packages that is on CRAN, run `cchn_register()`. This function:
+
+- registers your email address
+- a validation email is sent to you right away with your token
+- paste the token from the amil into the R session
+- the email and token are then saved in a file on your machine
+- all `cchn_rule*` functions use this cached token
+- you don't need to pass the token in any `cchn` function calls
+
+If you run `cchn_register()` in the same package directory (with the same email address), 
+you'll be issued a new token, which will be updated in your cached token file.
+
+It's entirely possible to have more than one email address you use across different R packages. 
+If you run `cchn_register()` in a different package directory (with a different email address
+from a previous run of `cchn_register()`), you'll be issued a different token associated 
+with that new email address.
+
+See `?cchn_rules` for details on how the rules work and many examples of adding rules.
+
+Note that you can only manage your own rules. You can not list, get, or delete rules 
+of other users.
+
+to do:
+
+- may create other functions for use cases where users want to work across packages rather
+than within a single package.
 
 ## Meta
 
