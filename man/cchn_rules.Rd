@@ -87,7 +87,7 @@ authenticated user)
 }
 \item ERROR for 2 days in a row on all osx platforms
 \itemize{
-\item \verb{cchn_rule_add(status' = 'error', time = 2, platform = "osx")}
+\item \code{cchn_rule_add(status = 'error', time = 2, platform = "osx")}
 }
 \item ERROR for 2 days in a row on all release R versions
 \itemize{
