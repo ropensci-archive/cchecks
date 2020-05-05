@@ -5,11 +5,11 @@
 #'
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient HttpRequest AsyncVaried
-#' @importFrom cli symbol
+#' @importFrom cli symbol cat_line rule
+#' @importFrom crayon yellow green yellow style
 #' @importFrom utils menu
 #' @importFrom whoami email_address
 #' @importFrom desc desc_get_maintainer
-#' @importFrom crayon yellow green yellow
 #' @importFrom rematch re_match
 #' @name cchecks-package
 #' @aliases cchecks

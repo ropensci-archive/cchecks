@@ -52,7 +52,8 @@
 #' 
 #' @return 
 #' 
-#' - `cchn_rule_add()`: `list(error = NULL, data = "success")`
+#' - `cchn_rule_add()`: message about the rule added, and a note about 
+#' using `cchn_rule_list()` to list your rules
 #' - `cchn_rule_get()`: list with elements `error` and `data` (a list of
 #' the parts of the rule)
 #' - `cchn_rule_list()`: list with elements `error` and `data` (a data.frame
@@ -82,7 +83,21 @@ cchn_rule_add <- function(status = NULL, platform = NULL,
   body <- ct(list(package = package, status = status, platforms = platform,
     time = time, regex = regex))
   x <- ccc_POST("notifications/rules", body = list(body), email = email, ...)
-  cch_parse(x, TRUE)
+  add_mssg(package, rule = jsonlite::toJSON(body, auto_unbox = TRUE))
+}
+
+add_mssg <- function(package, rule) {
+  cli::rule(
+    left = "success ", line = 2, line_col = "blue", width = 30
+  )
+  cli::cat_line(
+    paste("rule added for package", crayon::style(package, "lightblue"))
+  )
+  cli::cat_line(
+    paste("rule:", crayon::style(rule, "purple"))
+  )
+  cli::cat_line("use ", crayon::style("cchn_rule_list()", "underline"),
+    " to get your rules")
 }
 
 #' @export

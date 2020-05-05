@@ -57,7 +57,8 @@ rules that are not yours. required}
 }
 \value{
 \itemize{
-\item \code{cchn_rule_add()}: \code{list(error = NULL, data = "success")}
+\item \code{cchn_rule_add()}: message about the rule added, and a note about
+using \code{cchn_rule_list()} to list your rules
 \item \code{cchn_rule_get()}: list with elements \code{error} and \code{data} (a list of
 the parts of the rule)
 \item \code{cchn_rule_list()}: list with elements \code{error} and \code{data} (a data.frame
