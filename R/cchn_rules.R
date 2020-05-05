@@ -76,7 +76,7 @@ cchn_rule_add <- function(status = NULL, platform = NULL,
   package <- package_name(package)
   assert(package, "character")
   assert(status, "character")
-  assert(platform, "character")
+  assert(platform, c("numeric", "integer", "character"))
   assert(time, c("numeric", "integer"))
   assert(regex, "character")
   body <- ct(list(package = package, status = status, platforms = platform,
