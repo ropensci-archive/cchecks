@@ -22,12 +22,10 @@ cchn_register <- function(email = NULL, token = NULL, ...) {
   cat("\n")
 }
 
-#' @export
-#' @rdname cchn_register
-cchn_validate <- function(token = NULL) {
-  z <- tryCatch(cchn_rule_list(token = token), error = function(e) e)
-  if (!inherits(z, "error")) return(TRUE)
-  mssg <- "\n you may have an old token in your emails.csv file
- if so, remove it and re-run cchn_register()"
-  stop(z$message, mssg, call.=FALSE)
-}
+# cchn_validate <- function(token = NULL) {
+#   z <- tryCatch(cchn_rule_list(token = token), error = function(e) e)
+#   if (!inherits(z, "error")) return(TRUE)
+#   mssg <- "\n you may have an old token in your emails.csv file
+#  if so, remove it and re-run cchn_register()"
+#   stop(z$message, mssg, call.=FALSE)
+# }

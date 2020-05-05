@@ -2,12 +2,9 @@
 % Please edit documentation in R/cchn_register.R
 \name{cchn_register}
 \alias{cchn_register}
-\alias{cchn_validate}
 \title{Notifications: register your email address and get a token}
 \usage{
 cchn_register(email = NULL, token = NULL, ...)
-
-cchn_validate(token = NULL)
 }
 \arguments{
 \item{email}{(character) email address to use for interaction with
