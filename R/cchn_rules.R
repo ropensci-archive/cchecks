@@ -36,7 +36,7 @@
 #' - ERROR for 3 days in a row across 2 or more platforms
 #'     - `cchn_rule_add(status = 'error', time = 3, platform = 2)`
 #' - ERROR for 2 days in a row on all osx platforms
-#'     - `cchn_rule_add(status' = 'error', time = 2, platform = "osx")`
+#'     - `cchn_rule_add(status = 'error', time = 2, platform = "osx")`
 #' - ERROR for 2 days in a row on all release R versions
 #'     - `cchn_rule_add(status = 'error', time = 2, platform = "release")`
 #' - WARN for 4 days in a row on any platform except Solaris
