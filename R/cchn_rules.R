@@ -19,6 +19,7 @@
 #' @param path (character) path to a directory containing an R package
 #' @param id (integer) a rule id. note that you can not get or delete
 #' rules that are not yours. required
+#' @param quiet (logical) suppress messages? default: `FALSE`
 #' @param ... Curl options passed to [crul::verb-GET], [crul::verb-POST], or
 #' [crul::verb-DELETE]
 #' 
@@ -70,7 +71,8 @@
 #' @export
 #' @rdname cchn_rules
 cchn_rule_add <- function(status = NULL, platform = NULL,
-  time = NULL, regex = NULL, package = NULL, email = NULL, path = ".", ...) {
+  time = NULL, regex = NULL, package = NULL, email = NULL,
+  path = ".", quiet = FALSE, ...) {
 
   if (is.null(email)) email <- get_maintainer_email(path)
   email_token_check(email, path)
@@ -80,10 +82,12 @@ cchn_rule_add <- function(status = NULL, platform = NULL,
   assert(platform, c("numeric", "integer", "character"))
   assert(time, c("numeric", "integer"))
   assert(regex, "character")
+  assert(quiet, "logical")
   body <- ct(list(package = package, status = status, platforms = platform,
     time = time, regex = regex))
   x <- ccc_POST("notifications/rules", body = list(body), email = email, ...)
-  add_mssg(package, rule = jsonlite::toJSON(body, auto_unbox = TRUE))
+  if (!quiet) add_mssg(package, rule = jsonlite::toJSON(body, auto_unbox = TRUE))
+  return(TRUE)
 }
 
 add_mssg <- function(package, rule) {

@@ -155,7 +155,7 @@ parse_email <- function(x) {
 }
 
 get_maintainer_email <- function(path) {
-  path <- normalizePath(path)
+  path <- normalizePath(path, mustWork = TRUE)
   if (file.info(path)$isdir) {
     if (!file.exists(file.path(path, "DESCRIPTION"))) {
       stop("No 'DESCRIPTION' file found")

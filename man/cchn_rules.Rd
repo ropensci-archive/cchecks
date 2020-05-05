@@ -16,6 +16,7 @@ cchn_rule_add(
   package = NULL,
   email = NULL,
   path = ".",
+  quiet = FALSE,
   ...
 )
 
@@ -48,6 +49,8 @@ of the DESCRIPTION file of your working directory. you can supply an
 email address instead}
 
 \item{path}{(character) path to a directory containing an R package}
+
+\item{quiet}{(logical) suppress messages? default: \code{FALSE}}
 
 \item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}, \link[crul:verb-POST]{crul::verb-POST}, or
 \link[crul:verb-DELETE]{crul::verb-DELETE}}

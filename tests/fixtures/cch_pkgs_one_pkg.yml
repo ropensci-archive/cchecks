@@ -1,0 +1,35 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cranchecks.info/pkgs/worrms?limit=10&offset=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.4.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: 'Bearer '
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      access-control-allow-methods: HEAD, GET
+      access-control-allow-origin: '*'
+      cache-control: public, must-revalidate, max-age=60
+      content-encoding: gzip
+      content-type: application/json; charset=utf8
+      server: Caddy
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      content-length: '559'
+      date: Tue, 05 May 2020 21:52:59 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"error":null,"data":{"_id":"worrms","package":"worrms","url":"https://cloud.r-project.org/web/checks/check_results_worrms.html","summary":{"any":false,"ok":12,"note":0,"warn":0,"error":0,"fail":0},"checks":[{"flavor":"r-devel-linux-x86_64-debian-clang","version":"0.4.0","tinstall":2.86,"tcheck":36.05,"ttotal":38.91,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-clang/worrms-00check.html"},{"flavor":"r-devel-linux-x86_64-debian-gcc","version":"0.4.0","tinstall":2.05,"tcheck":28.85,"ttotal":30.9,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-debian-gcc/worrms-00check.html"},{"flavor":"r-devel-linux-x86_64-fedora-clang","version":"0.4.0","tinstall":0.0,"tcheck":0.0,"ttotal":48.89,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-clang/worrms-00check.html"},{"flavor":"r-devel-linux-x86_64-fedora-gcc","version":"0.4.0","tinstall":0.0,"tcheck":0.0,"ttotal":47.62,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-devel-linux-x86_64-fedora-gcc/worrms-00check.html"},{"flavor":"r-devel-windows-ix86+x86_64","version":"0.4.0","tinstall":10.0,"tcheck":75.0,"ttotal":85.0,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-devel-windows-ix86+x86_64/worrms-00check.html"},{"flavor":"r-patched-linux-x86_64","version":"0.4.0","tinstall":2.63,"tcheck":35.85,"ttotal":38.48,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-patched-linux-x86_64/worrms-00check.html"},{"flavor":"r-patched-solaris-x86","version":"0.4.0","tinstall":0.0,"tcheck":0.0,"ttotal":66.9,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-patched-solaris-x86/worrms-00check.html"},{"flavor":"r-release-linux-x86_64","version":"0.4.0","tinstall":2.64,"tcheck":35.35,"ttotal":37.99,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-release-linux-x86_64/worrms-00check.html"},{"flavor":"r-release-osx-x86_64","version":"0.4.0","tinstall":0.0,"tcheck":0.0,"ttotal":0.0,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-release-osx-x86_64/worrms-00check.html"},{"flavor":"r-release-windows-ix86+x86_64","version":"0.4.0","tinstall":9.0,"tcheck":74.0,"ttotal":83.0,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/worrms-00check.html"},{"flavor":"r-oldrel-osx-x86_64","version":"0.4.0","tinstall":0.0,"tcheck":0.0,"ttotal":0.0,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-oldrel-osx-x86_64/worrms-00check.html"},{"flavor":"r-oldrel-windows-ix86+x86_64","version":"0.4.0","tinstall":6.0,"tcheck":68.0,"ttotal":74.0,"status":"OK","check_url":"https://www.R-project.org/nosvn/R.check/r-oldrel-windows-ix86+x86_64/worrms-00check.html"}],"check_details":null,"date_updated":"2020-05-05T21:03:16.145Z"}}'
+  recorded_at: 2020-05-05 21:52:59 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
