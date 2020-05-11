@@ -198,3 +198,17 @@ package_name <- function(package) {
   }
   return(package)
 }
+
+add_mssg <- function(package, rule) {
+  cli::rule(
+    left = "success ", line = 2, line_col = "blue", width = 30
+  )
+  cli::cat_line(
+    paste("rule added for package", crayon::style(package, "lightblue"))
+  )
+  cli::cat_line(
+    paste("rule:", crayon::style(rule, "purple"))
+  )
+  cli::cat_line("use ", crayon::style("cchn_rule_list()", "underline"),
+    " to get your rules")
+}
