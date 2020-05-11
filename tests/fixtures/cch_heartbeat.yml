@@ -1,0 +1,35 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cranchecks.info/heartbeat
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.5.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: 'Bearer '
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      access-control-allow-methods: HEAD, GET
+      access-control-allow-origin: '*'
+      cache-control: public, must-revalidate, max-age=60
+      content-encoding: gzip
+      content-type: application/json; charset=utf8
+      server: Caddy
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      content-length: '159'
+      date: Mon, 11 May 2020 23:32:11 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"routes":["/","/docs","/heartbeat/?","/pkgs","/pkgs/:name","/maintainers","/maintainers/:email","/badges/:type/:package","/badges/flavor/:flavor/:package","/pkgs/:name/history","/history/:date","/notifications/rules","/notifications/rules/:id"]}'
+  recorded_at: 2020-05-11 23:32:11 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92
