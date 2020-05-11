@@ -1,0 +1,31 @@
+http_interactions:
+- request:
+    method: delete
+    uri: https://cranchecks.info/notifications/rules/105
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.4.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: Bearer <<cchecks_api_token>>
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: 'HTTP/2 204 '
+      access-control-allow-methods: DELETE
+      content-encoding: gzip
+      server: Caddy
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      date: Mon, 11 May 2020 22:26:33 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: ''
+  recorded_at: 2020-05-11 22:26:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92

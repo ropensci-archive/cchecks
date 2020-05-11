@@ -1,0 +1,32 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cranchecks.info/notifications/rules/578999
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.4.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: Bearer <<cchecks_api_token>>
+  response:
+    status:
+      status_code: '400'
+      message: Bad Request
+      explanation: Bad request syntax or unsupported method
+    headers:
+      status: 'HTTP/2 400 '
+      content-encoding: gzip
+      content-type: application/json
+      server: Caddy
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      content-length: '81'
+      date: Mon, 11 May 2020 22:29:32 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"error":{"message":"rule 578999 not found"},"data":null}'
+  recorded_at: 2020-05-11 22:29:32 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92

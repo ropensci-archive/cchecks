@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://cranchecks.info/notifications/rules/95
+    uri: https://cranchecks.info/notifications/rules/115
     body:
       encoding: ''
       string: ''
@@ -22,10 +22,10 @@ http_interactions:
       server: Caddy
       vary: Accept-Encoding
       x-content-type-options: nosniff
-      date: Tue, 05 May 2020 21:19:46 GMT
+      date: Mon, 11 May 2020 23:16:29 GMT
     body:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-05-05 21:19:46 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-05-11 23:16:29 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92

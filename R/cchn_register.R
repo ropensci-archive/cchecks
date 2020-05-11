@@ -21,11 +21,3 @@ cchn_register <- function(email = NULL, token = NULL, ...) {
   message("Token added for ", sQuote(email))
   cat("\n")
 }
-
-# cchn_validate <- function(token = NULL) {
-#   z <- tryCatch(cchn_rule_list(token = token), error = function(e) e)
-#   if (!inherits(z, "error")) return(TRUE)
-#   mssg <- "\n you may have an old token in your emails.csv file
-#  if so, remove it and re-run cchn_register()"
-#   stop(z$message, mssg, call.=FALSE)
-# }

@@ -75,10 +75,23 @@ https://github.com/r-hub/rhub
 The functions
 
 - `cchn_register()`: registration
-- `cchn_rule_list()`: list your own rules
-- `cchn_rule_get()`: get a rule by id
-- `cchn_rule_add()`: create a rule
-- `cchn_rule_delete()`: delete a rule by id (get id from `cchn_rule_list`)
+- `cchn_pkg_rule_list()`/`cchn_rule_list()`: list your own rules
+- `cchn_pkg_rule_get()`/`cchn_rule_get()`: get a rule by id
+- `cchn_pkg_rule_add()`/`cchn_rule_add()`: create a rule
+- `cchn_pkg_rule_delete()`/`cchn_rule_delete()`: delete a rule by id (get id from `cchn_pkg_rule_list`/`cchn_rule_list`)
+
+Functions prefixed with `cchn_pkg_` operate within a package 
+directory. That is, your current working directory is an R
+package, and is the package for which you want to handle CRAN checks 
+notifications. These functions make sure that you are inside of 
+an R package, and use the email address and package name based
+on the directory you're in.
+
+Functions prefixed with just `cchn_` do not operate within a package.
+These functions do not guess package name at all, but require the user
+to supply a package name (for those functions that require a package name);
+and instead of guessing an email address from your package, we guess email
+from the cached cchecks email file (see `?cchn_register`).
 
 The first thing to do is to register an email address. In an R session in a working directory for 
 one of your packages that is on CRAN, run `cchn_register()`. This function:
@@ -102,11 +115,6 @@ See `?cchn_rules` for details on how the rules work and many examples of adding 
 
 Note that you can only manage your own rules. You can not list, get, or delete rules 
 of other users.
-
-to do:
-
-- may create other functions for use cases where users want to work across packages rather
-than within a single package.
 
 ## Meta
 

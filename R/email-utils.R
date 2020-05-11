@@ -165,6 +165,25 @@ get_maintainer_email <- function(path) {
     stop("does not appear to be a package")
   }
 }
+get_email <- function(quiet = FALSE) {
+  assert(quiet, "logical")
+  file <- email_file_path()
+  if (!file.exists(file))
+    stop("emails.csv file not found; see ?cchn_register", call. = FALSE)
+  df <- utils::read.csv(file, stringsAsFactors = FALSE, header = FALSE)
+  if (NROW(df) == 0) {
+    stop("emails.csv file empty; see ?cchn_register", call. = FALSE)
+  }
+  if (NROW(df) > 1) {
+    if (!quiet) {
+      warning("> 1 emails found in emails.csv; ",
+        "using first email; ",
+        "re-arrange emails in file to set a different preferred email",
+        call. = FALSE)
+    }
+  }
+  return(df[,1][1])
+}
 
 assert_validated_email_for_check <- function(email) {
   token <- email_get_token(email)
@@ -185,7 +204,7 @@ email_get_token <- function(email) {
   tokens[match(email, tokens[,1]), 2]
 }
 
-email_token_check <- function(email = NULL, path = ".") {
+email_token_check <- function(email = NULL) {
   if (is.na(email)) stop("Cannot get email address from package")
   assert_validated_email_for_check(email)
 }
@@ -199,7 +218,7 @@ package_name <- function(package) {
   return(package)
 }
 
-add_mssg <- function(package, rule) {
+mssg <- function(package, rule) {
   cli::rule(
     left = "success ", line = 2, line_col = "blue", width = 30
   )
@@ -209,6 +228,27 @@ add_mssg <- function(package, rule) {
   cli::cat_line(
     paste("rule:", crayon::style(rule, "purple"))
   )
+  cli::cat_line("use ",
+    crayon::style("cchn_pkg_rule_list()/cchn_rule_list()", "underline"),
+    " to get your rules")
+}
+mssg2 <- function(package, rule) {
+  cli::rule(
+    left = "success ", line = 2, line_col = "blue", width = 30
+  )
+  cli::cat_line(
+    paste("rule added for package", crayon::style(package, "lightblue"))
+  )
+  cli::cat_line(
+    paste("rule:", crayon::style(rule, "purple"))
+  )
+}
+mssg_get_rules <- function() {
   cli::cat_line("use ", crayon::style("cchn_rule_list()", "underline"),
     " to get your rules")
+}
+
+check_within_a_pkg <- function(path = ".") {
+  x <- tryCatch(desc::desc(file = path), error = function(e) e)
+  !inherits(x, "error")
 }

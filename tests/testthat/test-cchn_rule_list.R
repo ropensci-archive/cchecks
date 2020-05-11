@@ -2,10 +2,11 @@ email <- "sckott7@gmail.com"
 
 test_that("cchn_rule_list fails well", {
   skip_on_ci()
-
-  expect_error(cchn_rule_list())
+  
+  # email not validated
   expect_error(cchn_rule_list("asdasdf"), "not validated")
-  expect_error(cchn_rule_list(path = "asdasdf"), "No such")
+  # quiet must be a boolean
+  expect_error(cchn_rule_list(quiet = 5))
 })
 
 test_that("cchn_rule_list", {

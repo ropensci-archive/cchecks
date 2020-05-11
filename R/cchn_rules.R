@@ -7,8 +7,8 @@
 #' platform check results, whereas you could limit the rule to just a single
 #' specific platform by using the target platforms exact string
 #' "r-oldrel-osx-x86_64"
-#' @param time (character) number of days
-#' @param regex  (character) a regex string
+#' @param time (integer) number of days
+#' @param regex (character) a regex string
 #' @param package (character) a package name. if `NULL`, we attempt to
 #' get the package name from the working directory, and fail out if there's
 #' not a valid package structure/package name
@@ -19,18 +19,37 @@
 #' @param path (character) path to a directory containing an R package
 #' @param id (integer) a rule id. note that you can not get or delete
 #' rules that are not yours. required
+#' @param rules (list) a list of rules. each element in the list must
+#' be a named list, in which each must have a "package", and a set of
+#' rules (see below)
 #' @param quiet (logical) suppress messages? default: `FALSE`
 #' @param ... Curl options passed to [crul::verb-GET], [crul::verb-POST], or
 #' [crul::verb-DELETE]
 #' 
 #' @details
+#' 
+#' Functions prefixed with `cchn_pkg_` operate within a package 
+#' directory. That is, your current working directory is an R
+#' package, and is the package for which you want to handle CRAN checks 
+#' notifications. These functions make sure that you are inside of 
+#' an R package, and use the email address and package name based
+#' on the directory you're in.
+#' 
+#' Functions prefixed with just `cchn_` do not operate within a package.
+#' These functions do not guess package name at all, but require the user
+#' to supply a package name (for those functions that require a package name);
+#' and instead of guessing an email address from your package, we guess email
+#' from the cached cchecks email file.
 #'
-#' - `cchn_rule_add()`: add a rule, one rule per function call
-#' - `cchn_rule_get()`: get a rule by rule id (see `cchn_rule_list` to get ids;
-#' can only get rules for the authenticated user)
-#' - `cchn_rule_list()`: list all rules for the authenticated user
-#' - `cchn_rule_delete()`: delete a rule by rule id (only those for the
-#' authenticated user)
+#' - `cchn_pkg_rule_add()`/`cchn_rule_add()`: add a rule, one rule per
+#' function call
+#' - `cchn_pkg_rule_get()`/`cchn_rule_get()`: get a rule by rule id (see
+#' `cchn_pkg_rule_list()`/`cchn_rule_list()` to get ids; can only get rules for
+#' the authenticated user)
+#' - `cchn_pkg_rule_list()`/`cchn_rule_list()`: list all rules for the
+#' authenticated user
+#' - `cchn_pkg_rule_delete()`/`cchn_rule_delete()`: delete a rule by rule id
+#' (only those for the authenticated user)
 #' 
 #' @section example rules:
 #' 
@@ -53,72 +72,40 @@
 #' 
 #' @return 
 #' 
-#' - `cchn_rule_add()`: message about the rule added, and a note about 
-#' using `cchn_rule_list()` to list your rules
-#' - `cchn_rule_get()`: list with elements `error` and `data` (a list of
-#' the parts of the rule)
-#' - `cchn_rule_list()`: list with elements `error` and `data` (a data.frame
-#' of all the rules associated with your email)
-#' - `cchn_rule_delete()`: if deletion works, a message saying "ok"
+#' - `cchn_rule_add()`/`cchn_rules_add()`: message about the rule added, and a
+#' note about using `cchn_rule_list()` to list your rules
+#' - `cchn_pkg_rule_get()`/`cchn_rule_get()`: list with elements `error` and
+#' `data` (a list of the parts of the rule)
+#' - `cchn_pkg_rule_list()`/`cchn_rule_list()`: list with elements `error` and
+#' `data` (a data.frame of all the rules associated with your email)
+#' - `cchn_pkg_rule_delete()`/`cchn_rule_delete()`: if deletion works, a
+#' message saying "ok"
 #'
 #' @examples \dontrun{
+#' # Workflow 1: within a package directory
+#' # (x <- cchn_pkg_rule_list())
+#' # cchn_pkg_rule_get(x$data$id[1])
+#' # cchn_pkg_rule_delete(x$data$id[1])
+#' # cchn_pkg_rule_get(id = x$data$id[1])
+#' 
+#' # Workflow 2: not in a package directory
 #' # (x <- cchn_rule_list())
 #' # cchn_rule_get(x$data$id[1])
 #' # cchn_rule_delete(x$data$id[1])
 #' # cchn_rule_get(id = x$data$id[1])
+#' 
+#' # cchn_rule_add: add a rule - in pkg context, guesses the package name
+#' # you can specify the package name instead
+#' # cchn_rule_add(status = "note", platform = 3,
+#' #  email = "some-email")
+#' 
+#' # cchn_rules_add: add many rules at once
+#' # no package context here, email and package names must be given
+#' # pkg <- "charlatan"
+#' # rules <- list(
+#' #   list(package = pkg, status = "warn"),
+#' #   list(package = pkg, status = "error", time = 4)
+#' # )
+#' # cchn_rules_add(rules, "your-email", verbose = TRUE)
 #' }
-
-#' @export
-#' @rdname cchn_rules
-cchn_rule_add <- function(status = NULL, platform = NULL,
-  time = NULL, regex = NULL, package = NULL, email = NULL,
-  path = ".", quiet = FALSE, ...) {
-
-  if (is.null(email)) email <- get_maintainer_email(path)
-  email_token_check(email, path)
-  package <- package_name(package)
-  assert(package, "character")
-  assert(status, "character")
-  assert(platform, c("numeric", "integer", "character"))
-  assert(time, c("numeric", "integer"))
-  assert(regex, "character")
-  assert(quiet, "logical")
-  body <- ct(list(package = package, status = status, platforms = platform,
-    time = time, regex = regex))
-  x <- ccc_POST("notifications/rules", body = list(body), email = email, ...)
-  if (!quiet) add_mssg(package, rule = jsonlite::toJSON(body, auto_unbox = TRUE))
-  return(TRUE)
-}
-
-#' @export
-#' @rdname cchn_rules
-cchn_rule_list <- function(email = NULL, path = ".", ...) {
-  if (is.null(email)) email <- get_maintainer_email(path)
-  email_token_check(email, path)
-  x <- ccc_GET("notifications/rules", list(), email = email, ...)
-  cch_parse(x, TRUE)
-}
-
-#' @export
-#' @rdname cchn_rules
-cchn_rule_get <- function(id, email = NULL, path = ".", ...) {
-  if (is.null(email)) email <- get_maintainer_email(path)
-  email_token_check(email, path)
-  assert(id, c('integer', 'numeric'))
-  stopifnot("id length can not be 0" = length(id) > 0)
-  x <- ccc_GET(path = file.path("notifications/rules", id), list(),
-    email = email, ...)
-  cch_parse(x, TRUE)
-}
-
-#' @export
-#' @rdname cchn_rules
-cchn_rule_delete <- function(id, email = NULL, path = ".", ...) {
-  if (is.null(email)) email <- get_maintainer_email(path)
-  email_token_check(email, path)
-  assert(id, c('integer', 'numeric'))
-  stopifnot("id length can not be 0" = length(id) > 0)
-  x <- ccc_DELETE(path = file.path("notifications/rules", id),
-    email = email, ...)
-  if (x$status_code == 204) message("ok")
-}
+NULL

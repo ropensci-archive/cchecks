@@ -1,0 +1,69 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://cranchecks.info/notifications/rules
+    body:
+      encoding: ''
+      string: '[{"package":"foobar","status":"note","platforms":3}]'
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.4.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: Bearer <<cchecks_api_token>>
+      Content-Type: application/json
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      access-control-allow-methods: POST
+      access-control-allow-origin: '*'
+      cache-control: public, must-revalidate, max-age=60
+      content-encoding: gzip
+      content-type: application/json; charset=utf8
+      server: Caddy
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      content-length: '55'
+      date: Mon, 11 May 2020 22:26:33 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"error":null,"data":"success"}'
+  recorded_at: 2020-05-11 22:26:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92
+- request:
+    method: get
+    uri: https://cranchecks.info/notifications/rules
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.4.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: Bearer <<cchecks_api_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      content-encoding: gzip
+      content-type: text/html;charset=utf-8
+      server: Caddy
+      vary: Accept-Encoding
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      x-xss-protection: 1; mode=block
+      content-length: '121'
+      date: Mon, 11 May 2020 22:26:33 GMT
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"error":null,"data":[{"id":105,"package":"foobar","rule_status":"note","rule_time":null,"rule_platforms":"3","rule_regex":null}]}'
+  recorded_at: 2020-05-11 22:26:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92

@@ -23,10 +23,10 @@ http_interactions:
       vary: Accept-Encoding
       x-content-type-options: nosniff
       content-length: '81'
-      date: Tue, 05 May 2020 21:34:25 GMT
+      date: Mon, 11 May 2020 23:01:13 GMT
     body:
       encoding: UTF-8
       file: no
       string: '{"error":{"message":"rule 578999 not found"},"data":null}'
-  recorded_at: 2020-05-05 21:34:25 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-05-11 23:01:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92

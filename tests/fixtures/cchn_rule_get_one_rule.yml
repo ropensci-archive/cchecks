@@ -24,17 +24,17 @@ http_interactions:
       x-content-type-options: nosniff
       x-frame-options: SAMEORIGIN
       x-xss-protection: 1; mode=block
-      content-length: '132'
-      date: Tue, 05 May 2020 21:40:37 GMT
+      content-length: '124'
+      date: Mon, 11 May 2020 23:01:13 GMT
     body:
       encoding: UTF-8
       file: no
-      string: '{"error":null,"data":[{"id":101,"package":"honeybadger","rule_status":"warn","rule_time":6,"rule_platforms":null,"rule_regex":null},{"id":102,"package":"honeybadger","rule_status":"warn","rule_time":6,"rule_platforms":null,"rule_regex":null}]}'
-  recorded_at: 2020-05-05 21:40:37 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: '{"error":null,"data":[{"id":111,"package":"honeybadger","rule_status":"warn","rule_time":6,"rule_platforms":null,"rule_regex":null}]}'
+  recorded_at: 2020-05-11 23:01:14 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92
 - request:
     method: get
-    uri: https://cranchecks.info/notifications/rules/101
+    uri: https://cranchecks.info/notifications/rules/111
     body:
       encoding: ''
       string: ''
@@ -57,11 +57,11 @@ http_interactions:
       x-content-type-options: nosniff
       x-frame-options: SAMEORIGIN
       x-xss-protection: 1; mode=block
-      content-length: '121'
-      date: Tue, 05 May 2020 21:40:37 GMT
+      content-length: '120'
+      date: Mon, 11 May 2020 23:01:14 GMT
     body:
       encoding: UTF-8
       file: no
-      string: '{"error":null,"data":{"id":101,"package":"honeybadger","rule_status":"warn","rule_time":6,"rule_platforms":null,"rule_regex":null}}'
-  recorded_at: 2020-05-05 21:40:37 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: '{"error":null,"data":{"id":111,"package":"honeybadger","rule_status":"warn","rule_time":6,"rule_platforms":null,"rule_regex":null}}'
+  recorded_at: 2020-05-11 23:01:14 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2.92
