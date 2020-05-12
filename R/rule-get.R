@@ -1,7 +1,7 @@
 rule_get <- function(id, email, ...) {
   email_token_check(email)
   assert(id, c('integer', 'numeric'))
-  stopifnot("id length can not be 0" = length(id) > 0)
+  if (!length(id) > 0) stop("id length can not be 0", call. = FALSE)
   x <- ccc_GET(path = file.path("notifications/rules", id), list(),
     email = email, ...)
   cch_parse(x, TRUE)

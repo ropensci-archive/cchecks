@@ -89,8 +89,8 @@ rules that are not yours. required}
 }
 \value{
 \itemize{
-\item \code{cchn_rule_add()}/\code{cchn_rules_add()}: message about the rule added, and a
-note about using \code{cchn_rule_list()} to list your rules
+\item \code{cchn_pkg_rule_add()}/\code{cchn_rule_add()}/\code{cchn_rules_add()}: message about
+the rule added, and a note about using \code{cchn_rule_list()} to list your rules
 \item \code{cchn_pkg_rule_get()}/\code{cchn_rule_get()}: list with elements \code{error} and
 \code{data} (a list of the parts of the rule)
 \item \code{cchn_pkg_rule_list()}/\code{cchn_rule_list()}: list with elements \code{error} and
@@ -118,6 +118,7 @@ from the cached cchecks email file.
 \itemize{
 \item \code{cchn_pkg_rule_add()}/\code{cchn_rule_add()}: add a rule, one rule per
 function call
+\item \code{cchn_rules_add()}: add many rules at once; no option for package context
 \item \code{cchn_pkg_rule_get()}/\code{cchn_rule_get()}: get a rule by rule id (see
 \code{cchn_pkg_rule_list()}/\code{cchn_rule_list()} to get ids; can only get rules for
 the authenticated user)
@@ -167,25 +168,40 @@ authenticated user
 
 \examples{
 \dontrun{
-# Workflow 1: within a package directory
+## Workflow 1: within a package directory
 # (x <- cchn_pkg_rule_list())
-# cchn_pkg_rule_get(x$data$id[1])
-# cchn_pkg_rule_delete(x$data$id[1])
-# cchn_pkg_rule_get(id = x$data$id[1])
+# if (length(x$data$id) > 0) {
+#  cchn_pkg_rule_get(x$data$id[1])
+#  cchn_pkg_rule_delete(x$data$id[1])
+#  cchn_pkg_rule_get(id = x$data$id[1])
+# }
 
-# Workflow 2: not in a package directory
+## Workflow 2: not in a package directory
 # (x <- cchn_rule_list())
-# cchn_rule_get(x$data$id[1])
-# cchn_rule_delete(x$data$id[1])
-# cchn_rule_get(id = x$data$id[1])
+# if (length(x$data$id) > 0) {
+#  cchn_rule_get(x$data$id[1])
+#  cchn_rule_delete(x$data$id[1])
+#  cchn_rule_get(id = x$data$id[1])
+# }
 
-# cchn_rule_add: add a rule - in pkg context, guesses the package name
-# you can specify the package name instead
-# cchn_rule_add(status = "note", platform = 3,
+## cchn_pkg_rule_add: add a rule - guesses the package name
+## you can specify the package name instead
+# cchn_pkg_rule_add(status = "note", platform = 3,
+#  email = "some-email")
+## cchn_rule_add: add a rule - not in package context, must 
+## specify the package name
+# cchn_rule_add(package = "foobar", status = "note", platform = 3,
 #  email = "some-email")
 
-# cchn_rules_add: add many rules at once
-# no package context here, email and package names must be given
+## cchn_pkg_rule_add: should guess package name and email
+# cchn_pkg_rule_add(status = "note", platform = 3)
+
+## cchn_rule_add: package name must be supplied. takes first email
+## from cached emails.csv file, see `?cchn_register` for more
+# cchn_rule_add(package = "foobar", status = "warn", platform = 2)
+
+## cchn_rules_add: add many rules at once
+## no package context here, email and package names must be given
 # pkg <- "charlatan"
 # rules <- list(
 #   list(package = pkg, status = "warn"),

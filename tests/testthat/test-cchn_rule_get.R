@@ -18,6 +18,13 @@ test_that("cchn_rule_get", {
       "not found")
   })
 
+  # fails as expected when cchn_rule_list is empty
+  vcr::use_cassette("cchn_rule_get_empty_rule_list", {
+    x <- cchn_rule_list(email = email)
+    expect_error(cchn_rule_get(x$data$id, email = email),
+      "id length can not be 0")
+  })
+
   # add a rule
   vcr::use_cassette("cchn_rule_get_add_rule", {
     cchn_rule_add(status = "warn", package = "honeybadger", time = 6,
