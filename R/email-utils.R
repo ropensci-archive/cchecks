@@ -25,7 +25,7 @@ email_file_path <- function() {
 
 request_token <- function(email, ...) {
   args <- ct(list(email = email))
-  ccc_GET("notifications/token", args, no_token = TRUE, ...)
+  ccc_GET("notifications/token", args, email = NULL, no_token = TRUE, ...)
 }
 
 cchn_valid <- function(token = NULL) {

@@ -27,6 +27,6 @@ cch_pkgs <- function(x = NULL, limit = 10, offset = 0, ...) {
 	if (length(path) > 1) {
 		lapply(ccc_asyncGET(path, args), cch_parse, parse = TRUE)
 	} else {
-  	cch_parse(ccc_GET(path, args, ...), TRUE)
+  	cch_parse(ccc_GET(path, args, email = NULL, no_token = TRUE, ...), TRUE)
 	}
 }
