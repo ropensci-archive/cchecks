@@ -7,5 +7,11 @@
 #' cch_heartbeat()
 #' }
 cch_heartbeat <- function(...) {
-  cch_parse(ccc_GET("heartbeat", NULL, ...), TRUE)
+  cch_parse(
+    ccc_GET(
+      "heartbeat", args = NULL, email = NULL, 
+      no_token = TRUE, ...
+      ),
+    TRUE
+    )
 }
