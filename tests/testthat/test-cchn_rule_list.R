@@ -4,7 +4,7 @@ test_that("cchn_rule_list fails well", {
   skip_on_ci()
   
   # email not validated
-  expect_error(cchn_rule_list("asdasdf"), "not validated")
+  expect_error(cchn_rule_list("asdasdf"), "invalid email address")
   # quiet must be a boolean
   expect_error(cchn_rule_list(quiet = 5))
 })

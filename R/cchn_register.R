@@ -16,6 +16,8 @@ cchn_register <- function(email = NULL, token = NULL, ...) {
       stop("No email or no token and not in interactive mode")
     }
     return(interactive_validate_email(email, token, ...))
+  } else {
+    valid_email(email)
   }
   add_token(email, token)
   message("Token added for ", sQuote(email))

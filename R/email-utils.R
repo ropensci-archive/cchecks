@@ -252,3 +252,9 @@ check_within_a_pkg <- function(path = ".") {
   x <- tryCatch(desc::desc(file = path), error = function(e) e)
   !inherits(x, "error")
 }
+
+valid_email <- function(email) {
+  x <- Address$new(email)
+  if (!x$valid()) stop("invalid email address: ", email, call. = FALSE)
+  # if (!x$valid()) stop(x$fail(), call. = FALSE)
+}

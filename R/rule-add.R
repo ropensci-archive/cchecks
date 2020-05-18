@@ -1,6 +1,7 @@
 #' @export
 #' @rdname cchn_rules
 cchn_rules_add <- function(rules, email, quiet = FALSE, ...) {
+  if (!is.null(email)) valid_email(email)
   if (is.null(email)) email <- get_email(quiet = quiet)
   email_token_check(email)
   assert(rules, "list")
@@ -44,6 +45,7 @@ cchn_rule_add <- function(package, status = NULL, platform = NULL,
   rule_add(package, status, platform, time, regex, email, quiet, ...)
 }
 rule_add <- function(package, status, platform, time, regex, email, quiet, ...) {
+  valid_email(email)
   email_token_check(email)
   assert(package, "character")
   assert(status, "character")

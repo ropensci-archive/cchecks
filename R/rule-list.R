@@ -1,5 +1,6 @@
 # rule list
 rule_list <- function(email, ...) {
+  valid_email(email)
   email_token_check(email)
   x <- ccc_GET("notifications/rules", list(), email = email, ...)
   cch_parse(x, TRUE)

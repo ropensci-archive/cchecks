@@ -11,6 +11,7 @@
 #' @importFrom whoami email_address
 #' @importFrom desc desc_get_maintainer
 #' @importFrom rematch re_match
+#' @importFrom addressable Address
 #' @name cchecks-package
 #' @aliases cchecks
 #' @docType package

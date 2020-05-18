@@ -1,4 +1,5 @@
 rule_get <- function(id, email, ...) {
+  valid_email(email)
   email_token_check(email)
   assert(id, c('integer', 'numeric'))
   if (!length(id) > 0) stop("id length can not be 0", call. = FALSE)

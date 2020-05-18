@@ -1,4 +1,5 @@
 rule_delete <- function(id, email, ...) {
+  valid_email(email)
   email_token_check(email)
   assert(id, c('integer', 'numeric'))
   stopifnot("id length can not be 0" = length(id) > 0)
