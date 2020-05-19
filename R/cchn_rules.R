@@ -47,8 +47,9 @@
 #' - `cchn_pkg_rule_get()`/`cchn_rule_get()`: get a rule by rule id (see
 #' `cchn_pkg_rule_list()`/`cchn_rule_list()` to get ids; can only get rules for
 #' the authenticated user)
-#' - `cchn_pkg_rule_list()`/`cchn_rule_list()`: list all rules for the
-#' authenticated user
+#' - `cchn_pkg_rule_list()`/`cchn_rule_list()`: list rules for the
+#' authenticated user - `cchn_pkg_rule_list()` lists rules only for the package
+#' in question, while `cchn_rule_list()` lists all rules for the user (email)
 #' - `cchn_pkg_rule_delete()`/`cchn_rule_delete()`: delete a rule by rule id
 #' (only those for the authenticated user)
 #' 

@@ -209,11 +209,11 @@ email_token_check <- function(email = NULL) {
   assert_validated_email_for_check(email)
 }
 
-package_name <- function(package) {
+package_name <- function(package, path = ".") {
   if (is.null(package)) {
-    if (!desc::desc_has_fields("Package"))
+    if (!desc::desc_has_fields("Package", file = path))
       stop("could not find package name")
-    package <- desc::desc_get_field("Package")
+    package <- desc::desc_get_field("Package", file = path)
   }
   return(package)
 }

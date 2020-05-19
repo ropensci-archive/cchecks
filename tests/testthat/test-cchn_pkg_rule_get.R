@@ -1,5 +1,12 @@
 email <- "sckott7@gmail.com"
 
+testthat::setup({
+  options(usethis.quiet=TRUE) # quiet usethis
+})
+testthat::teardown({
+  options(usethis.quiet=FALSE)
+})
+
 test_that("cchn_pkg_rule_get fails well", {
   skip_on_ci()
 
@@ -16,6 +23,9 @@ test_that("cchn_pkg_rule_get", {
       "not found")
   })
 
+  path <- fake_pkg("honeybadger")
+  on.exit(unlink(path, recursive = TRUE), add = TRUE)
+
   # add a rule
   vcr::use_cassette("cchn_pkg_rule_get_add_rule", {
     cchn_rule_add(status = "warn", package = "honeybadger", time = 6,
@@ -24,8 +34,8 @@ test_that("cchn_pkg_rule_get", {
 
   # after a rule added
   vcr::use_cassette("cchn_pkg_rule_get_one_rule", {
-    rules <- cchn_pkg_rule_list(email = email)
-    rule <- cchn_pkg_rule_get(rules$data$id[1], email = email)
+    rules <- cchn_pkg_rule_list(path = path)
+    rule <- cchn_pkg_rule_get(rules$data$id[1], path = path)
   })
   expect_is(rule, "list")
   expect_named(rule, c("error", "data"))
@@ -40,6 +50,6 @@ test_that("cchn_pkg_rule_get", {
 
   # cleanup
   vcr::use_cassette("cchn_pkg_rule_get_cleanup", {
-    cchn_pkg_rule_delete(rule$data$id, email = email)
+    cchn_pkg_rule_delete(rule$data$id, path = path)
   })
 })

@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://cranchecks.info/notifications/rules/109
+    uri: https://cranchecks.info/notifications/rules/241
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.4.91)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.5.95)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
       Authorization: Bearer <<cchecks_api_token>>
@@ -22,10 +22,10 @@ http_interactions:
       server: Caddy
       vary: Accept-Encoding
       x-content-type-options: nosniff
-      date: Mon, 11 May 2020 22:29:32 GMT
+      date: Tue, 19 May 2020 20:01:33 GMT
     body:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-05-11 22:29:32 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.92
+  recorded_at: 2020-05-19 20:01:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

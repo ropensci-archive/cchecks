@@ -33,7 +33,7 @@ cchn_pkg_rule_add <- function(status = NULL, platform = NULL,
   path = ".", quiet = FALSE, ...) {
 
   if (is.null(email)) email <- get_maintainer_email(path)
-  package <- package_name(package)
+  package <- package_name(package, path = path)
   rule_add(package, status, platform, time, regex, email, quiet, ...)
 }
 #' @export

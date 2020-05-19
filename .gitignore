@@ -4,4 +4,3 @@
 .Rproj
 scotts_rules.R
 rules_egs.R
-tests/fixtures/cchn_rule_add.yml

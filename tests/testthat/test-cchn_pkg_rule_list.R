@@ -1,5 +1,12 @@
 email <- "sckott7@gmail.com"
 
+testthat::setup({
+  options(usethis.quiet=TRUE) # quiet usethis
+})
+testthat::teardown({
+  options(usethis.quiet=FALSE)
+})
+
 test_that("cchn_pkg_rule_list fails well", {
   skip_on_ci()
 
@@ -11,9 +18,12 @@ test_that("cchn_pkg_rule_list fails well", {
 test_that("cchn_pkg_rule_list", {
   skip_on_ci()
 
+  path <- fake_pkg("rgbif")
+  on.exit(unlink(path, recursive = TRUE), add = TRUE)
+
   # before any rules added
   vcr::use_cassette("cchn_pkg_rule_list_empty", {
-    rules <- cchn_pkg_rule_list(email = email)
+    rules <- cchn_pkg_rule_list(path = path)
   })
   expect_is(rules, "list")
   expect_is(rules$data, "list")
@@ -21,13 +31,12 @@ test_that("cchn_pkg_rule_list", {
 
   # add a rule
   vcr::use_cassette("cchn_pkg_rule_list_add_rule", {
-    cchn_pkg_rule_add(status = "note", package = "wombat",
-      email = email, quiet = TRUE)
+    cchn_pkg_rule_add(status = "note", quiet = TRUE, path = path)
   })
 
   # after a rule added
   vcr::use_cassette("cchn_pkg_rule_list_one_rule", {
-    rules <- cchn_pkg_rule_list(email = email)
+    rules <- cchn_pkg_rule_list(path = path)
   })
   expect_is(rules, "list")
   expect_is(rules$data, "data.frame")
@@ -35,6 +44,6 @@ test_that("cchn_pkg_rule_list", {
 
   # cleanup
   vcr::use_cassette("cchn_pkg_rule_list_cleanup", {
-    cchn_pkg_rule_delete(rules$data$id[1], email = email)
+    cchn_pkg_rule_delete(rules$data$id[1], path = path)
   })
 })

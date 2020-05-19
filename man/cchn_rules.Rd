@@ -122,8 +122,9 @@ function call
 \item \code{cchn_pkg_rule_get()}/\code{cchn_rule_get()}: get a rule by rule id (see
 \code{cchn_pkg_rule_list()}/\code{cchn_rule_list()} to get ids; can only get rules for
 the authenticated user)
-\item \code{cchn_pkg_rule_list()}/\code{cchn_rule_list()}: list all rules for the
-authenticated user
+\item \code{cchn_pkg_rule_list()}/\code{cchn_rule_list()}: list rules for the
+authenticated user - \code{cchn_pkg_rule_list()} lists rules only for the package
+in question, while \code{cchn_rule_list()} lists all rules for the user (email)
 \item \code{cchn_pkg_rule_delete()}/\code{cchn_rule_delete()}: delete a rule by rule id
 (only those for the authenticated user)
 }
