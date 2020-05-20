@@ -7,7 +7,7 @@
 cch_pkgs_search(
   q,
   package = NULL,
-  one_each = NULL,
+  one_each = FALSE,
   fields = NULL,
   limit = 30,
   offset = 0,
