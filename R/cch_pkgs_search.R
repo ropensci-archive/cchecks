@@ -38,8 +38,12 @@
 cch_pkgs_search <- function(q, package = NULL, one_each = FALSE,
   fields = NULL, limit = 30, offset = 0, ...) {
 
+  assert(q, "character")
+  assert(package, "character")
+  assert(fields, "character")
+  assert(one_each, "logical")
   if (!is.null(fields)) fields <- paste0(fields, collapse=",")
-  args <- ct(list(q = q, package = package, one_each = one_each,
+  args <- ct(list(q = q, package = package, one_each = as_log(one_each),
     fields = fields, limit = limit, offset = offset))
   res <- ccc_GET("search", args, email = NULL, no_token = TRUE, ...)
   tmp <- cch_parse(res, TRUE)

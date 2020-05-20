@@ -23,6 +23,7 @@
 #' cch_pkgs(c("geojsonio", "leaflet", "MASS"))
 #' }
 cch_pkgs <- function(x = NULL, limit = 10, offset = 0, ...) {
+  assert(x, "character")
 	args <- ct(list(limit = limit, offset = offset))
 	path <- "pkgs"
 	if (!is.null(x)) path <- file.path(path, x)

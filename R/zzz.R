@@ -8,3 +8,8 @@ assert <- function(x, y) {
     }
   }
 }
+
+as_log <- function(x) {
+  if (is.null(x)) return(x)
+  if (x) "true" else "false"
+}
