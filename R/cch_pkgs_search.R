@@ -35,7 +35,7 @@
 #' cch_pkgs_search("memory", limit = 3)
 #' cch_pkgs_search("memory", limit = 3, offset = 4)
 #' }
-cch_pkgs_search <- function(q, package = NULL, one_each = NULL,
+cch_pkgs_search <- function(q, package = NULL, one_each = FALSE,
   fields = NULL, limit = 30, offset = 0, ...) {
 
   if (!is.null(fields)) fields <- paste0(fields, collapse=",")
