@@ -3,8 +3,11 @@ Type: Package
 Title: Client for the cranchecks.info API
 Description: Client for the cranchecks.info API.
 Version: 0.1.7.91
-Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "sckott@protonmail.com"))
+Authors@R: c(
+    person("Scott", "Chamberlain", role = c("aut", "cre"),
+        email = "sckott@protonmail.com"),
+    person("Maëlle", "Salmon", role = "aut")
+    )
 License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/cchecks, https://docs.ropensci.org/cchecks
 BugReports: https://github.com/ropenscilabs/cchecks/issues
