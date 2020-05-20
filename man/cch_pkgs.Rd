@@ -2,7 +2,7 @@
 % Please edit documentation in R/cch_pkgs.R
 \name{cch_pkgs}
 \alias{cch_pkgs}
-\title{Get package based checks}
+\title{Get package checks data}
 \usage{
 cch_pkgs(x = NULL, limit = 10, offset = 0, ...)
 }
@@ -21,7 +21,11 @@ we'll do async}
 list of info about a package(s)
 }
 \description{
-Get package based checks
+Get package checks data
+}
+\note{
+this function only gets the current days checks; see
+\code{\link[=cch_pkgs_history]{cch_pkgs_history()}} for historical data
 }
 \examples{
 \dontrun{

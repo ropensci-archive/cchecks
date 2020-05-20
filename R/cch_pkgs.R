@@ -1,4 +1,4 @@
-#' Get package based checks
+#' Get package checks data
 #'
 #' @export
 #' @param x package name, optional, if you pass in more than one
@@ -8,6 +8,8 @@
 #' @param ... Curl options passed to [crul::HttpClient()] or
 #' [crul::Async()]
 #' @return list of info about a package(s)
+#' @note this function only gets the current days checks; see
+#' [cch_pkgs_history()] for historical data
 #' @examples \dontrun{
 #' x <- cch_pkgs()
 #' x$data

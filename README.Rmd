@@ -19,6 +19,8 @@ R client for the CRAN checks API at <https://cranchecks.info>
 
 authentication is only needed for the CRAN checks API for the functions that start with `cchn`
 
+See https://docs.ropensci.org/cchecks for full documentation on `cchecks`
+
 ## Install
 
 ```{r eval=FALSE}
@@ -39,28 +41,42 @@ cch_heartbeat()
 
 all
 
-```{r}
+```{r eval=FALSE}
 cch_pkgs(limit = 1)
 ```
 
 by name
 
-```{r}
+```{r eval=FALSE}
 x <- cch_pkgs(c("geojsonio", "leaflet", "MASS"))
 lapply(x, "[[", c("data", "summary"))
+```
+
+historical data
+
+```{r eval=FALSE}
+x <- cch_pkgs_history(x = "geojsonio")
+x$data$history
+```
+
+search historical data
+
+```{r eval=FALSE}
+x <- cch_pkgs_search(q = "memory")
+x$data
 ```
 
 ## maintainers
 
 all
 
-```{r}
+```{r eval=FALSE}
 cch_maintainers(limit = 1)
 ```
 
 by name
 
-```{r}
+```{r eval=FALSE}
 cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
 ```
 

@@ -3,6 +3,8 @@
 export(cch_heartbeat)
 export(cch_maintainers)
 export(cch_pkgs)
+export(cch_pkgs_history)
+export(cch_pkgs_search)
 export(cchn_pkg_rule_add)
 export(cchn_pkg_rule_delete)
 export(cchn_pkg_rule_get)
