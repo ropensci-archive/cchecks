@@ -23,6 +23,7 @@ Imports:
     addressable
 Suggests: 
     testthat,
+    rmarkdown,
     vcr,
     usethis
 RoxygenNote: 7.1.0

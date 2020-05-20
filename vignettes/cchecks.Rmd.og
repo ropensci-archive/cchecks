@@ -1,0 +1,83 @@
+---
+title: Client for the cranchecks.info API
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Client for the cranchecks.info API}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r echo=FALSE}
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  purl = NOT_CRAN,
+  eval = NOT_CRAN
+)
+```
+
+`cchecks` is a client for the <https://cranchecks.info> API
+
+## Install
+
+```{r eval=FALSE}
+remotes::install_github("ropenscilabs/cchecks")
+```
+
+```{r}
+library("cchecks")
+```
+
+## heartbeat
+
+```{r}
+cch_heartbeat()
+```
+
+## packages
+
+all
+
+```{r}
+cch_pkgs(limit = 1)
+```
+
+by name
+
+```{r}
+x <- cch_pkgs(c("geojsonio", "leaflet", "MASS"))
+lapply(x, "[[", c("data", "summary"))
+```
+
+historical data
+
+```{r}
+x <- cch_pkgs_history(x = "geojsonio")
+x$data$history
+```
+
+search historical data
+
+```{r}
+x <- cch_pkgs_search(q = "memory")
+x$data
+```
+
+## maintainers
+
+all
+
+```{r}
+cch_maintainers(limit = 1)
+```
+
+by name
+
+```{r}
+cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
+```

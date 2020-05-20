@@ -33,52 +33,18 @@ library("cchecks")
 
 ## heartbeat
 
-```{r}
-cch_heartbeat()
-```
+- `cch_heartbeat()`
 
 ## packages
 
-all
-
-```{r eval=FALSE}
-cch_pkgs(limit = 1)
-```
-
-by name
-
-```{r eval=FALSE}
-x <- cch_pkgs(c("geojsonio", "leaflet", "MASS"))
-lapply(x, "[[", c("data", "summary"))
-```
-
-historical data
-
-```{r eval=FALSE}
-x <- cch_pkgs_history(x = "geojsonio")
-x$data$history
-```
-
-search historical data
-
-```{r eval=FALSE}
-x <- cch_pkgs_search(q = "memory")
-x$data
-```
+- current day package check data: `cch_pkgs()` or `cch_pkgs("packagename")`
+- historical package check data (30 days back): `cch_pkgs_history()`
+- search historical data: `cch_pkgs_search()`
 
 ## maintainers
 
-all
-
-```{r eval=FALSE}
-cch_maintainers(limit = 1)
-```
-
-by name
-
-```{r eval=FALSE}
-cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
-```
+- all maintainers: `cch_maintainers()`
+- maintainers by email: `cch_maintainers("maelle.salmon_at_yahoo.se")`
 
 ## notifications
 

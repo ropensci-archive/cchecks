@@ -28,67 +28,18 @@ library("cchecks")
 
 ## heartbeat
 
-
-```r
-cch_heartbeat()
-#> $routes
-#>  [1] "/"                               "/docs"                          
-#>  [3] "/heartbeat/?"                    "/pkgs"                          
-#>  [5] "/pkgs/:name"                     "/maintainers"                   
-#>  [7] "/maintainers/:email"             "/badges/:type/:package"         
-#>  [9] "/badges/flavor/:flavor/:package" "/pkgs/:name/history"            
-#> [11] "/history/:date"                  "/search"                        
-#> [13] "/notifications/rules"            "/notifications/rules/:id"
-```
+- `cch_heartbeat()`
 
 ## packages
 
-all
-
-
-```r
-cch_pkgs(limit = 1)
-```
-
-by name
-
-
-```r
-x <- cch_pkgs(c("geojsonio", "leaflet", "MASS"))
-lapply(x, "[[", c("data", "summary"))
-```
-
-historical data
-
-
-```r
-x <- cch_pkgs_history(x = "geojsonio")
-x$data$history
-```
-
-search historical data
-
-
-```r
-x <- cch_pkgs_search(q = "memory")
-x$data
-```
+- current day package check data: `cch_pkgs()` or `cch_pkgs("packagename")`
+- historical package check data (30 days back): `cch_pkgs_history()`
+- search historical data: `cch_pkgs_search()`
 
 ## maintainers
 
-all
-
-
-```r
-cch_maintainers(limit = 1)
-```
-
-by name
-
-
-```r
-cch_maintainers(c("maelle.salmon_at_yahoo.se", "13268259225_at_163.com"))
-```
+- all maintainers: `cch_maintainers()`
+- maintainers by email: `cch_maintainers("maelle.salmon_at_yahoo.se")`
 
 ## notifications
 
