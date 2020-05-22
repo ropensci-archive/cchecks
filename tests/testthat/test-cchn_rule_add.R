@@ -10,7 +10,13 @@ test_that("cchn_rule_add", {
     rules <- cchn_rule_list(email = email)
   })
   
-  expect_true(x)
+  expect_is(x, "list")
+  expect_named(x, c("error","data"))
+  expect_null(x$error)
+  expect_is(x$data, "data.frame")
+  expect_is(x$data$id, "integer")
+  expect_is(x$data$already_existed, "logical")
+  expect_is(x$data$rule, "character")
 
   dat <- rules$data
   fb <- dat[dat$package == pkg, ]

@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: '[{"package":"bubbles","status":"note","platforms":3}]'
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.5.95)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.8.94)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
       Authorization: Bearer <<cchecks_api_token>>
@@ -21,18 +21,17 @@ http_interactions:
       access-control-allow-methods: POST
       access-control-allow-origin: '*'
       cache-control: public, must-revalidate, max-age=60
-      content-encoding: gzip
       content-type: application/json; charset=utf8
       server: Caddy
-      vary: Accept-Encoding
       x-content-type-options: nosniff
-      content-length: '55'
-      date: Tue, 19 May 2020 20:57:33 GMT
+      content-length: '120'
+      date: Fri, 22 May 2020 20:56:30 GMT
     body:
       encoding: UTF-8
       file: no
-      string: '{"error":null,"data":"success"}'
-  recorded_at: 2020-05-19 20:57:33 GMT
+      string: '{"error":null,"data":[{"id":279,"already_existed":true,"rule":"package:bubbles,
+        status:note, flavor:3, time:, regex:"}]}'
+  recorded_at: 2020-05-22 20:56:30 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
@@ -41,7 +40,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.5.95)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.8.94)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
       Authorization: Bearer <<cchecks_api_token>>
@@ -52,18 +51,16 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: 'HTTP/2 200 '
-      content-encoding: gzip
       content-type: text/html;charset=utf-8
       server: Caddy
-      vary: Accept-Encoding
       x-content-type-options: nosniff
       x-frame-options: SAMEORIGIN
       x-xss-protection: 1; mode=block
-      content-length: '121'
-      date: Tue, 19 May 2020 20:57:33 GMT
+      content-length: '131'
+      date: Fri, 22 May 2020 20:56:30 GMT
     body:
       encoding: UTF-8
       file: no
-      string: '{"error":null,"data":[{"id":246,"package":"bubbles","rule_status":"note","rule_time":null,"rule_platforms":"3","rule_regex":null}]}'
-  recorded_at: 2020-05-19 20:57:33 GMT
+      string: '{"error":null,"data":[{"id":279,"package":"bubbles","rule_status":"note","rule_time":null,"rule_platforms":"3","rule_regex":null}]}'
+  recorded_at: 2020-05-22 20:56:30 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

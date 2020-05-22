@@ -16,7 +16,7 @@ cchn_rules_add <- function(rules, email, quiet = FALSE, ...) {
         call. = FALSE)
     }
   }
-  ccc_POST("notifications/rules", body = rules, email = email, ...)
+  out <- ccc_POST("notifications/rules", body = rules, email = email, ...)
   if (!quiet) {
     for (i in seq_along(rules)) {
       mssg2(rules[[i]]$package, rule = jsonlite::toJSON(rules[[i]],
@@ -25,6 +25,7 @@ cchn_rules_add <- function(rules, email, quiet = FALSE, ...) {
     }
     mssg_get_rules()
   }
+  return(cch_parse(out, TRUE))
 }
 #' @export
 #' @rdname cchn_rules
@@ -55,7 +56,7 @@ rule_add <- function(package, status, platform, time, regex, email, quiet, ...) 
   assert(quiet, "logical")
   body <- ct(list(package = package, status = status, platforms = platform,
     time = time, regex = regex))
-  ccc_POST("notifications/rules", body = list(body), email = email, ...)
+  out <- ccc_POST("notifications/rules", body = list(body), email = email, ...)
   if (!quiet) mssg(package, rule = jsonlite::toJSON(body, auto_unbox = TRUE))
-  return(TRUE)
+  return(cch_parse(out, TRUE))
 }

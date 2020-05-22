@@ -223,29 +223,27 @@ mssg <- function(package, rule) {
     left = "success ", line = 2, line_col = "blue", width = 30
   )
   cli::cat_line(
-    paste("rule added for package", crayon::style(package, "lightblue"))
+    paste("package:", crayon::style(package, "lightblue"))
   )
   cli::cat_line(
     paste("rule:", crayon::style(rule, "purple"))
   )
-  cli::cat_line("use ",
-    crayon::style("cchn_pkg_rule_list()/cchn_rule_list()", "underline"),
-    " to get your rules")
+  cli::cat_line("list rules: ",
+    crayon::style("cchn_pkg_rule_list()/cchn_rule_list()", "underline"))
 }
 mssg2 <- function(package, rule) {
   cli::rule(
     left = "success ", line = 2, line_col = "blue", width = 30
   )
   cli::cat_line(
-    paste("rule added for package", crayon::style(package, "lightblue"))
+    paste("package:", crayon::style(package, "lightblue"))
   )
   cli::cat_line(
     paste("rule:", crayon::style(rule, "purple"))
   )
 }
 mssg_get_rules <- function() {
-  cli::cat_line("use ", crayon::style("cchn_rule_list()", "underline"),
-    " to get your rules")
+  cli::cat_line("list rules: ", crayon::style("cchn_rule_list()", "underline"))
 }
 
 check_within_a_pkg <- function(path = ".") {
