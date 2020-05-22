@@ -1,4 +1,4 @@
-#' Get historical check data for packages
+#' Get historical check data for all packages by date
 #'
 #' @export
 #' @param date (character) a date of the form `YYYY-MM-DD`. required

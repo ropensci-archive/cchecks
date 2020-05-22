@@ -34,7 +34,19 @@ library("cchecks")
 
 - current day package check data: `cch_pkgs()` or `cch_pkgs("packagename")`
 - historical package check data (30 days back): `cch_pkgs_history()`
+- historical package check data for all packages by day: `cch_history()`
 - search historical data: `cch_pkgs_search()`
+
+There's an important shortcoming of historical data. The links in the historical
+data in the `checks` field are not date specific. If you go to a link in historical
+data, for example for April 2nd, 2020, links in that set of data link to whatever
+the current check data is for that package. The `check_details` field is
+date specific though; the text is scraped from the package checks page each day
+and stored, so you can count on that to be date specific. There are sometimes
+links to further checks, often of compiled packages on various types of checks
+that CRAN runs; we do not have those check results - we could get them but 
+have not take the time to sort that out.
+
 
 ## maintainers
 

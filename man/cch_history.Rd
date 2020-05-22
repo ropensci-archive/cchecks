@@ -2,7 +2,7 @@
 % Please edit documentation in R/cch_history.R
 \name{cch_history}
 \alias{cch_history}
-\title{Get historical check data for packages}
+\title{Get historical check data for all packages by date}
 \usage{
 cch_history(date, ...)
 }
@@ -25,7 +25,7 @@ performed on
 }
 }
 \description{
-Get historical check data for packages
+Get historical check data for all packages by date
 }
 \details{
 This function gets historical data for all packages for a single
