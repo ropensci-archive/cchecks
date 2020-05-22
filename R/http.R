@@ -33,6 +33,16 @@ ccc_GET <- function(path, args, email = NULL, no_token = FALSE, ...) {
   return(x)
 }
 
+ccc_GET_link <- function(path, ...) {
+  cli <- crul::HttpClient$new(
+    url = file.path(ccc_base(), path),
+    opts = list(useragent = cchecks_ua(), followlocation = 1, ...)
+  )
+  temp <- cli$get()
+  err_catcher(temp)
+  return(temp$url)
+}
+
 ccc_DELETE <- function(path, email = NULL, ...) {
   headers <- list()
   token <- check_token(email)
@@ -80,8 +90,19 @@ ccc_asyncGET <- function(path, args, ...) {
 err_catcher <- function(x) {
   if (x$status_code > 201) {
     if (x$status_code == 204) return(NULL)
-    xx <- jsonlite::fromJSON(x$parse("UTF-8"))
-    stop(sprintf("(%s) ", x$status_code), xx$error, call. = FALSE)
+    if (grepl("xml", x$response_headers$`content-type`)) {
+      txt <- x$parse("UTF-8")
+      if (grepl("NoSuchKey", txt) || x$status_code == 404) {
+        mssg <- "error in fetching Amazon S3 file: `date` not found"
+      } else {
+        mssg <- "error in fetching Amazon S3 file: unknown reason"
+      }
+    }
+    if (grepl("json", x$response_headers$`content-type`)) {
+      xx <- jsonlite::fromJSON(x$parse("UTF-8"))
+      mssg <- xx$error
+    }
+    stop(sprintf("(%s) ", x$status_code), mssg, call. = FALSE)
   }
 }
 

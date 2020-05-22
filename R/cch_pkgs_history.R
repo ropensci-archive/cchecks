@@ -9,7 +9,7 @@
 #' see [cch_pkgs()]
 #' 
 #' data is only available for 30 days prior to today's date, see the
-#' `/history/:date` route for older data
+#' [cch_history()] function for older data
 #' @examples \dontrun{
 #' x <- cch_pkgs_history(x = "geojsonio")
 #' x

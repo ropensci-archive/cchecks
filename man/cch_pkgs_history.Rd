@@ -28,7 +28,7 @@ this function gets historical data; for current day check data only
 see \code{\link[=cch_pkgs]{cch_pkgs()}}
 
 data is only available for 30 days prior to today's date, see the
-\verb{/history/:date} route for older data
+\code{\link[=cch_history]{cch_history()}} function for older data
 }
 \examples{
 \dontrun{

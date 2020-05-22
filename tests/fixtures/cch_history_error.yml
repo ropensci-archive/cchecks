@@ -1,0 +1,32 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cranchecks.info/history/2030-05-22
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(cchecks/0.1.8.91)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
+    headers:
+      status: HTTP/1.1 404 Not Found
+      x-amz-request-id: 509F1E592412A8B3
+      x-amz-id-2: Xb4AN1IyjZBfi+Q0CigSg2XqvshHwXoBrlk/ej2tdpYWyVjxB/XwG67eRWGHva5sTj/xfBj2sDI=
+      content-type: application/xml
+      transfer-encoding: chunked
+      date: Fri, 22 May 2020 17:17:07 GMT
+      server: AmazonS3
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>2030-05-22.json.gz</Key><RequestId>509F1E592412A8B3</RequestId><HostId>Xb4AN1IyjZBfi+Q0CigSg2XqvshHwXoBrlk/ej2tdpYWyVjxB/XwG67eRWGHva5sTj/xfBj2sDI=</HostId></Error>
+  recorded_at: 2020-05-22 17:17:08 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
