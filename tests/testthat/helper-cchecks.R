@@ -10,6 +10,8 @@ if (on_ci && !file.exists(path)) {
     V2 = c(Sys.getenv("CCHECKS_TOKEN_SCKOTT7"),
       Sys.getenv("CCHECKS_TOKEN_MYRMECOCYSTUS"))
   )
+  parent <- dirname(path)
+  if (!file.exists(parent)) dir.create(parent, recursive = TRUE)
   utils::write.table(z, file = path, sep = ",", col.names = FALSE,
       row.names = FALSE)
 }
