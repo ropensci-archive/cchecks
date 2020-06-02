@@ -1,8 +1,10 @@
+on_ci <- isTRUE(as.logical(Sys.getenv("CI")))
+Sys.setenv(CCHECKS_TESTING = on_ci)
+path <- file.path(tempfile(), "emails.csv")
+Sys.setenv(CCHECKS_TESTING_EMAIL_FILE_PATH = path)
 # Sys.setenv(CCHECKS_TOKEN_SCKOTT7 = "stuff")
 # Sys.setenv(CCHECKS_TOKEN_MYRMECOCYSTUS = "things")
-path <- file.path(rappdirs::user_data_dir("cranchecks", "cchecks"),
-  "emails.csv")
-if (!file.exists(path)) {
+if (on_ci && !file.exists(path)) {
   z <- data.frame(
     V1 = c("sckott7@gmail.com", "myrmecocystus@gmail.com"),
     V2 = c(Sys.getenv("CCHECKS_TOKEN_SCKOTT7"),

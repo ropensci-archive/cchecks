@@ -19,8 +19,12 @@ add_token <- function(email, token) {
 }
 
 email_file_path <- function() {
-  file.path(rappdirs::user_data_dir("cranchecks", "cchecks"),
-    "emails.csv")
+  if (Sys.getenv("CCHECKS_TESTING", "FALSE")) {
+    Sys.getenv("CCHECKS_TESTING_EMAIL_FILE_PATH", "")
+  } else {
+    file.path(rappdirs::user_data_dir("cranchecks", "cchecks"),
+      "emails.csv")
+  }
 }
 
 request_token <- function(email, ...) {
