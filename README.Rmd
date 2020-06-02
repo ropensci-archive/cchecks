@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Build Status](https://travis-ci.com/ropenscilabs/cchecks.svg?branch=master)](https://travis-ci.com/ropenscilabs/cchecks)
+[![R-CMD-check](https://github.com/ropenscilabs/cchecks/workflows/R-CMD-check/badge.svg)](https://github.com/ropenscilabs/cchecks/actions/)
 [![codecov.io](https://codecov.io/github/ropenscilabs/cchecks/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/cchecks?branch=master)
 
 R client for the CRAN checks API at <https://cranchecks.info>
