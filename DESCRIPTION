@@ -32,4 +32,4 @@ Suggests:
     vcr,
     usethis
 RoxygenNote: 7.1.0
-Remotes: ropenscilabs/addressable
+Remotes: ropenscilabs/addressable@main
