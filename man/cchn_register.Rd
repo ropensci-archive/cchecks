@@ -8,7 +8,10 @@ cchn_register(email = NULL, token = NULL, ...)
 }
 \arguments{
 \item{email}{(character) email address to use for interaction with
-the CRAN checks API}
+the CRAN checks API. If no email address is given, we go through a few
+steps: check for the cached file mentioned below for any emails; use
+\code{\link[whoami:email_address]{whoami::email_address()}}; if the location you are running this in is
+a package, we look for the maintainer's email address in the package.}
 
 \item{token}{(character) your CRAN checks API token. you shouldn't need
 to pass a token in here. if you used \code{\link[=cchn_register]{cchn_register()}} your token should

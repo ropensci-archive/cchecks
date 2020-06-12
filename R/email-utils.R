@@ -63,14 +63,14 @@ interactive_validate_email <- function(email, token, path = ".", ...) {
   stopifnot("'email' is not a valid email" = grepl(".@.", email))
 
   if (token_registered(email)) {
-    # return(list(email = email, token = fetch_token(email)))
     return(cchn_register(email, fetch_token(email)))
   }
   
   if (is.null(token)) {
     request_token(email, ...)
     message(crayon::yellow(
-      "Check your emails for the CRAN checks token"
+      "Check your emails for the CRAN checks token (may not arrive immediately)\n",
+      "Paste in the token without quotes"
     ))
     token <- readline("Token: ")
   }
