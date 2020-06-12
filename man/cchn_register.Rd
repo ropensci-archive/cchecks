@@ -26,6 +26,17 @@ be cached}
 Notifications: register your email address and get a token
 }
 \details{
-We cache a file with details at the path
+We cache a file with email addresses and tokens at the path
 \code{file.path(rappdirs::user_data_dir("cranchecks", "cchecks"), "emails.csv")}
+You can run that in R to get the path for the file on your machine.
+
+To get a new token for an email address that was previously registered,
+go to the file above and delete the line with the email address and token
+for the email address in question; remember to save the change.
+Then when you run \code{cchn_register()} again for that email you can get
+a new token.
+
+To add an email address that was validated before (probably on
+another machine), to the configuration file, call this function
+with the ‘email’ and ‘token’ arguments.
 }
