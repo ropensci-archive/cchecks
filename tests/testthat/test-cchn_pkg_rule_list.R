@@ -11,7 +11,8 @@ test_that("cchn_pkg_rule_list fails well", {
   skip_on_ci()
 
   expect_error(cchn_pkg_rule_list())
-  expect_error(cchn_pkg_rule_list("asdasdf"), "invalid email address")
+  expect_error(cchn_pkg_rule_list("asdasdf"),
+    "`email` is not a valid email")
   expect_error(cchn_pkg_rule_list(path = "asdasdf"), "No such")
 })
 

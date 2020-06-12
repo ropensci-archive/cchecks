@@ -256,7 +256,9 @@ check_within_a_pkg <- function(path = ".") {
 }
 
 valid_email <- function(email) {
-  x <- Address$new(email)
-  if (!x$valid()) stop("invalid email address: ", email, call. = FALSE)
+  assert(email, "character")
+  if (!grepl(".@.", email)) stop("`email` is not a valid email")
+  # x <- Address$new(email)
+  # if (!x$valid()) stop("invalid email address: ", email, call. = FALSE)
   # if (!x$valid()) stop(x$fail(), call. = FALSE)
 }

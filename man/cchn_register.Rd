@@ -14,13 +14,13 @@ steps: check for the cached file mentioned below for any emails; use
 a package, we look for the maintainer's email address in the package.}
 
 \item{token}{(character) your CRAN checks API token. you shouldn't need
-to pass a token in here. if you used \code{\link[=cchn_register]{cchn_register()}} your token should
+to pass a token here. if you used \code{\link[=cchn_register]{cchn_register()}} your token should
 be cached}
 
 \item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-list, with \code{email} and \code{token} slots
+\code{NULL} - nothing returned
 }
 \description{
 Notifications: register your email address and get a token
