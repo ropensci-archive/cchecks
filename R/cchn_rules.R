@@ -6,7 +6,8 @@
 #' platform strings used by cran checks. e.g., "osx" would match any osx
 #' platform check results, whereas you could limit the rule to just a single
 #' specific platform by using the target platforms exact string
-#' "r-oldrel-osx-x86_64"
+#' "r-oldrel-osx-x86_64". Leave as `NULL` (the default) to match all 
+#' platforms.
 #' @param time (integer) number of days
 #' @param regex (character) a regex string
 #' @param package (character) a package name. if `NULL`, we attempt to
