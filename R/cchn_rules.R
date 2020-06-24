@@ -56,6 +56,10 @@
 #' 
 #' @section example rules:
 #' 
+#' Note that the first parameter `package` is left out for brevity
+#' 
+#' - ERROR for at least 1 day across all platforms
+#'     - `cchn_rule_add(status = 'error')`
 #' - ERROR for 3 days in a row across 2 or more platforms
 #'     - `cchn_rule_add(status = 'error', time = 3, platform = 2)`
 #' - ERROR for 2 days in a row on all osx platforms
@@ -66,9 +70,9 @@
 #'     - `cchn_rule_add(status = 'warn', time = 4, platform = "-solaris")`
 #' - WARN for 2 days in a row across 9 or more platforms
 #'     - `cchn_rule_add(status = 'warn', time = 2, platform = 10)`
-#' - NOTE across all osx platforms
+#' - NOTE on any osx platform
 #'     - `cchn_rule_add(status = 'note', platform = "osx")`
-#' - NOTE
+#' - NOTE on any platform
 #'     - `cchn_rule_add(status = 'note')`
 #' - error details contain regex 'install'
 #'     - `cchn_rule_add(regex = "install")`

@@ -72,7 +72,8 @@ email address instead}
 platform strings used by cran checks. e.g., "osx" would match any osx
 platform check results, whereas you could limit the rule to just a single
 specific platform by using the target platforms exact string
-"r-oldrel-osx-x86_64"}
+"r-oldrel-osx-x86_64". Leave as \code{NULL} (the default) to match all
+platforms.}
 
 \item{time}{(integer) number of days}
 
@@ -131,7 +132,13 @@ in question, while \code{cchn_rule_list()} lists all rules for the user (email)
 }
 \section{example rules}{
 
+
+Note that the first parameter \code{package} is left out for brevity
 \itemize{
+\item ERROR for at least 1 day across all platforms
+\itemize{
+\item \code{cchn_rule_add(status = 'error')}
+}
 \item ERROR for 3 days in a row across 2 or more platforms
 \itemize{
 \item \code{cchn_rule_add(status = 'error', time = 3, platform = 2)}
@@ -152,11 +159,11 @@ in question, while \code{cchn_rule_list()} lists all rules for the user (email)
 \itemize{
 \item \code{cchn_rule_add(status = 'warn', time = 2, platform = 10)}
 }
-\item NOTE across all osx platforms
+\item NOTE on any osx platform
 \itemize{
 \item \code{cchn_rule_add(status = 'note', platform = "osx")}
 }
-\item NOTE
+\item NOTE on any platform
 \itemize{
 \item \code{cchn_rule_add(status = 'note')}
 }
