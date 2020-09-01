@@ -10,8 +10,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![R-CMD-check](https://github.com/ropenscilabs/cchecks/workflows/R-CMD-check/badge.svg)](https://github.com/ropenscilabs/cchecks/actions/)
-[![codecov.io](https://codecov.io/github/ropenscilabs/cchecks/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/cchecks?branch=master)
+[![R-CMD-check](https://github.com/ropensci/cchecks/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/cchecks/actions/)
+[![codecov.io](https://codecov.io/github/ropensci/cchecks/coverage.svg?branch=master)](https://codecov.io/github/ropensci/cchecks?branch=master)
 
 R client for the CRAN checks API at <https://cranchecks.info>
 
@@ -24,7 +24,7 @@ See https://docs.ropensci.org/cchecks for full documentation on `cchecks`
 ## Install
 
 ```{r eval=FALSE}
-remotes::install_github("ropenscilabs/cchecks")
+remotes::install_github("ropensci/cchecks")
 ```
 
 ```{r}
@@ -112,10 +112,10 @@ of other users.
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropenscilabs/cchecks/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/cchecks/issues).
 * License: MIT
 * Get citation information for `cchecks` in R doing `citation(package = 'cchecks')`
 * Please note that this project is released with a [Contributor Code of Conduct][coc]. By participating in this project you agree to abide by its terms.
 
 [docs]: https://cranchecks.info/docs
-[coc]: https://github.com/ropenscilabs/cchecks/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/ropensci/cchecks/blob/master/CODE_OF_CONDUCT.md

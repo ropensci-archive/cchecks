@@ -9,8 +9,8 @@ Authors@R: c(
     person("Maëlle", "Salmon", role = "aut")
     )
 License: MIT + file LICENSE
-URL: https://github.com/ropenscilabs/cchecks, https://docs.ropensci.org/cchecks
-BugReports: https://github.com/ropenscilabs/cchecks/issues
+URL: https://github.com/ropensci/cchecks, https://docs.ropensci.org/cchecks
+BugReports: https://github.com/ropensci/cchecks/issues
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 VignetteBuilder: knitr
@@ -32,4 +32,4 @@ Suggests:
     vcr,
     usethis
 RoxygenNote: 7.1.0
-Remotes: ropenscilabs/addressable@main
+Remotes: ropensci/addressable@main
